@@ -63,14 +63,17 @@ namespace ChiquitoMarmoraria
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050005
+			public const int button1 = 2131034117;
+			
 			// aapt resource value: 0x7f050000
 			public const int img_logo = 2131034112;
 			
-			// aapt resource value: 0x7f050006
-			public const int lbl_cadastre = 2131034118;
+			// aapt resource value: 0x7f050007
+			public const int lbl_cadastre = 2131034119;
 			
-			// aapt resource value: 0x7f050005
-			public const int lbl_esqueci = 2131034117;
+			// aapt resource value: 0x7f050006
+			public const int lbl_esqueci = 2131034118;
 			
 			// aapt resource value: 0x7f050001
 			public const int lbl_login = 2131034113;
