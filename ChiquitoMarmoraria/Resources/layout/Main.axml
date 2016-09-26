@@ -47,7 +47,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/button1"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:onClick="entrar" />
     <TextView
         android:text="Esqueci minha senha"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -65,5 +66,6 @@
         android:id="@+id/lbl_cadastre"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:onClick="cadastro" />
 </LinearLayout>

@@ -12,7 +12,22 @@ namespace ChiquitoMarmoraria
     public class MainActivity : Activity
     {
 
-        
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Main);
+        }
+
+        public void entrar(View v)
+        {
+            
+            
+        }
+
+        public void cadastro(View v)
+        {
+            SetContentView(Resource.Layout.cadastro_login);
+        }
     }
 }
 
