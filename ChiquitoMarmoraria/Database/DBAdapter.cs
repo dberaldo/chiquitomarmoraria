@@ -45,7 +45,7 @@ namespace ChiquitoMarmoraria
 			}
 		}
 
-		//Inserção de dados
+		//Inserção de dados de materias
 		public bool inserirDados(string nome_material, string categoria, string descricao, double preco)
 		{
 			try
@@ -55,7 +55,7 @@ namespace ChiquitoMarmoraria
 				dados_insercao.Put(ConstantesDB.CATEGORIA, categoria);
 				dados_insercao.Put(ConstantesDB.DESCRICAO, descricao);
 				dados_insercao.Put(ConstantesDB.PRECO, preco);
-				db.Insert(ConstantesDB.NOME_TABELA, ConstantesDB.ID_MATERIAL, dados_insercao);
+				db.Insert(ConstantesDB.NOME_TABELA_MATERIAIS, ConstantesDB.ID_MATERIAL, dados_insercao);
 				return true;
 			}
 			catch (Exception e)
@@ -66,12 +66,40 @@ namespace ChiquitoMarmoraria
 			return false;
 		}
 
-		//Consulta de dados
+		//Consulta de dados de materiais
 		public ICursor recuperarDados()
 		{
 			string[] columns = { ConstantesDB.ID_MATERIAL, ConstantesDB.NOME_MATERIAL, ConstantesDB.CATEGORIA, ConstantesDB.DESCRICAO, ConstantesDB.PRECO };
 
-			return db.Query(ConstantesDB.NOME_TABELA, columns, null, null, null, null, null);
+			return db.Query(ConstantesDB.NOME_TABELA_MATERIAIS, columns, null, null, null, null, null);
 		}
-	}
+
+        //Insercao de dados de pessoas
+        public bool inserirPessoa(string nome_pessoa, string email, string senha)
+        {
+            try
+            {
+                ContentValues dados_insercao = new ContentValues();
+                dados_insercao.Put(ConstantesDB.NOME_PESSOA, nome_pessoa);
+                dados_insercao.Put(ConstantesDB.EMAIL, email);
+                dados_insercao.Put(ConstantesDB.SENHA, senha);
+                db.Insert(ConstantesDB.NOME_TABELA_PESSOA, ConstantesDB.ID_PESSOA, dados_insercao);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+
+            return false;
+        }
+
+        public ICursor recuperarDadosPessoas()
+        {
+            string[] columns = { ConstantesDB.ID_PESSOA, ConstantesDB.NOME_PESSOA, ConstantesDB.EMAIL, ConstantesDB.SENHA};
+
+            return db.Query(ConstantesDB.NOME_TABELA_PESSOA, columns, null, null, null, null, null);
+        }
+
+    }
 }
