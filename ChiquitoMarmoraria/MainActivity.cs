@@ -52,19 +52,19 @@ namespace ChiquitoMarmoraria
                 else
                 {
 
-                    //Redireciona para a página Cadastro Login
-                    var intent = new Intent(this, typeof(CadastroLogin));
+					//Redireciona para a página Cadastro Login
+					var intent = new Intent(this, typeof(CadastroLogin));
                     StartActivity(intent);
+					entrar();
                 }
-                
             };
-
         }
 
-        public void entrar(View v)
+        public void entrar()
         {
-            
-            
+			//Redireciona para a parte de CRUD de Materiais do administrador só para fins de testes.
+			/*var intent = new Intent(this, typeof(MenuAdministrador));
+			StartActivity(intent);*/
         }
 
        

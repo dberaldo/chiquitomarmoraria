@@ -3,4 +3,6 @@
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">ChiquitoMarmoraria</string>
 	<string name="Materiais">Materiais</string>
+	<string name="Cadastrar">Cadastrar</string>
+	<string name="Adicionar">Adicionar</string>
 </resources>

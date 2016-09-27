@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -80,11 +80,12 @@
     <Compile Include="Resources\Model\Pessoa.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MenuAdministrador.cs" />
-    <Compile Include="CadastroMateriais.cs" />
     <Compile Include="Database\ConstantesDB.cs" />
     <Compile Include="Database\DBHelper.cs" />
     <Compile Include="Database\DBAdapter.cs" />
+    <Compile Include="MenuAdministrador.cs" />
+    <Compile Include="CadastroMateriais.cs" />
+    <Compile Include="VisualizacaoMateriais.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -94,8 +95,10 @@
     <AndroidResource Include="Resources\layout\CadastroLogin.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\MenuAdministrador.axml" />
     <AndroidResource Include="Resources\layout\CadastroMateriais.axml" />
+    <AndroidResource Include="Resources\layout\MenuAdministrador.axml" />
+    <AndroidResource Include="Resources\layout\VisualizacaoMateriais.axml" />
+    <AndroidResource Include="Resources\drawable\recarregar.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
