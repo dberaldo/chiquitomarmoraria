@@ -41,7 +41,6 @@ namespace ChiquitoMarmoraria
 
 			try
 			{
-
 				if (database.inserirDados(nome, categoria, descricao, Convert.ToDouble(preco)))
 				{
 					txtNomeMaterial.Text = "";

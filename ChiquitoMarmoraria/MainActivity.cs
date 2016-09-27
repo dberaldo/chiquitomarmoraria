@@ -53,8 +53,8 @@ namespace ChiquitoMarmoraria
                 {
 
 					//Redireciona para a página Cadastro Login
-					var intent = new Intent(this, typeof(CadastroLogin));
-                    StartActivity(intent);
+					/*var intent = new Intent(this, typeof(CadastroLogin));
+                    StartActivity(intent);*/
 					entrar();
                 }
             };
@@ -63,8 +63,8 @@ namespace ChiquitoMarmoraria
         public void entrar()
         {
 			//Redireciona para a parte de CRUD de Materiais do administrador só para fins de testes.
-			/*var intent = new Intent(this, typeof(MenuAdministrador));
-			StartActivity(intent);*/
+			var intent = new Intent(this, typeof(MenuAdministrador));
+			StartActivity(intent);
         }
 
        

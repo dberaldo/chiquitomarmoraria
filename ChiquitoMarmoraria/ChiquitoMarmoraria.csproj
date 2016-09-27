@@ -86,6 +86,8 @@
     <Compile Include="MenuAdministrador.cs" />
     <Compile Include="CadastroMateriais.cs" />
     <Compile Include="VisualizacaoMateriais.cs" />
+    <Compile Include="Resources\Model\Material.cs" />
+    <Compile Include="DetalhesMaterial.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -99,6 +101,7 @@
     <AndroidResource Include="Resources\layout\MenuAdministrador.axml" />
     <AndroidResource Include="Resources\layout\VisualizacaoMateriais.axml" />
     <AndroidResource Include="Resources\drawable\recarregar.png" />
+    <AndroidResource Include="Resources\layout\DetalhesMaterial.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

@@ -75,6 +75,22 @@ namespace ChiquitoMarmoraria
 			return db.Query(ConstantesDB.NOME_TABELA_MATERIAIS, columns, null, null, null, null, null);
 		}
 
+		//Edição de dados materiais
+		public bool excluirDados(int id)
+		{
+			string idString = id.ToString();
+			try
+			{
+				db.Delete(ConstantesDB.NOME_TABELA_MATERIAIS, ConstantesDB.ID_MATERIAL + "= ?", new String[] { idString });
+				return true;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Exception: " + e.Message);
+			}
+			return false;
+		}
+
         //Insercao de dados de pessoas
         public bool inserirPessoa(string nome_pessoa, string email, string senha)
         {
