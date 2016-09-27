@@ -5,6 +5,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ChiquitoMarmoraria
 {

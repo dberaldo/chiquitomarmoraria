@@ -3,6 +3,8 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ChiquitoMarmoraria
 {
@@ -19,8 +21,7 @@ namespace ChiquitoMarmoraria
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-
-			//Este comando liga o layout à sua respectiva activity
+            
 			SetContentView(Resource.Layout.CadastroLogin);
 
 			txtNome = FindViewById<EditText>(Resource.Id.txt_nome);
@@ -34,7 +35,10 @@ namespace ChiquitoMarmoraria
 			{
                 if (txtSenha.Text != txtSenhaRepete.Text)
                 {
-                    //erro
+                    txtSenha.Text = "";
+                    txtSenhaRepete.Text = "";
+                    Toast.MakeText(this, "Senhas não conferem. Por favor, tente novamente!", ToastLength.Short).Show();
+                    
                 }
                 else
                 {
@@ -46,13 +50,19 @@ namespace ChiquitoMarmoraria
 
         public void cadastroPessoa(string nome, string email, string senha)
         {
-            DBAdapter database = new DBAdapter(this);
-            database.openDB();
+            MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
 
             try
             {
-                if (database.inserirPessoa(nome, email, senha))
+                if (con.State == ConnectionState.Closed)
                 {
+                    con.Open();
+                    Console.WriteLine("Conectado com sucesso!");
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO pessoa (nome, email, senha) VALUES (@nome, @email, @senha)", con);
+                    cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
+                    cmd.ExecuteNonQuery();
                     txtNome.Text = "";
                     txtEmail.Text = "";
                     txtSenha.Text = "";
@@ -60,14 +70,14 @@ namespace ChiquitoMarmoraria
                     Toast.MakeText(this, "Cadastrado realizado com sucesso.", ToastLength.Short).Show();
                 }
             }
-            catch (FormatException f_e)
+            catch (MySqlException ex)
             {
-                Console.WriteLine(f_e.Message);
-                Toast.MakeText(this, "Não foi possível realizar o cadastro!", ToastLength.Short).Show();
+                Console.WriteLine(ex.Message);
             }
-            database.closeDB();
+            finally
+            {
+                con.Close();
+            }
         }
-
-		
 	}
 }
