@@ -43,11 +43,11 @@ namespace ChiquitoMarmoraria
             {
                 if (txtLogin.Text.Length <= 0)
                 {
-
+                    Toast.MakeText(this, "Campo Login não pode estar em branco!", ToastLength.Short).Show();
                 }
                 else if (txtLogin.Text.Length <= 0)
                 {
-
+                    Toast.MakeText(this, "Campo Senha não pode estar em branco!", ToastLength.Short).Show();
                 }
                 else
                 {

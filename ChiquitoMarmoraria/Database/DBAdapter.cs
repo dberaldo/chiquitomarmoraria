@@ -2,6 +2,7 @@
 using Android.Database.Sqlite;
 using Android.Content;
 using Android.Database;
+using ChiquitoMarmoraria.Resources.model;
 
 namespace ChiquitoMarmoraria
 {
