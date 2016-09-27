@@ -2,18 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
-    <RelativeLayout
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout1" />
-    <Button
-        android:text="@string/Materiais"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Menu do administrador"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnMateriais" />
+        android:id="@+id/textView1"
+        android:textColor="#ff81d3ff" />
+    <TableRow
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableRow1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCadastrarMaterial"
+            android:text="@string/Materiais" />
+    </TableRow>
 </LinearLayout>

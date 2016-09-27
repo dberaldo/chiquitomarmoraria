@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Widget;
 
@@ -18,9 +19,8 @@ namespace ChiquitoMarmoraria
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-
-			//Este comando liga o layout à sua respectiva activity
 			SetContentView(Resource.Layout.CadastroMateriais);
+			// Create your application here
 
 			txtNomeMaterial = FindViewById<EditText>(Resource.Id.txtNomeMaterial);
 			txtCategoria = FindViewById<EditText>(Resource.Id.txtCategoria);
@@ -41,7 +41,6 @@ namespace ChiquitoMarmoraria
 
 			try
 			{
-
 				if (database.inserirDados(nome, categoria, descricao, Convert.ToDouble(preco)))
 				{
 					txtNomeMaterial.Text = "";

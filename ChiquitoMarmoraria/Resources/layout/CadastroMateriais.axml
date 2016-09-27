@@ -59,9 +59,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView1" />
     <Button
-        android:text="Cadastrar"
+        android:text="@string/Cadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCadastrar"
-        android:textSize="20dp" />
+        android:id="@+id/btnCadastrar" />
 </LinearLayout>
