@@ -66,11 +66,11 @@ namespace ChiquitoMarmoraria
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050026
-			public const int btnAdicionar = 2131034150;
-			
 			// aapt resource value: 0x7f050027
-			public const int btnAtualizar = 2131034151;
+			public const int btnAdicionar = 2131034151;
+			
+			// aapt resource value: 0x7f050028
+			public const int btnAtualizar = 2131034152;
 			
 			// aapt resource value: 0x7f050014
 			public const int btnCadastrar = 2131034132;
@@ -93,14 +93,17 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f05000a
 			public const int btn_voltar = 2131034122;
 			
+			// aapt resource value: 0x7f050025
+			public const int button1 = 2131034149;
+			
 			// aapt resource value: 0x7f050000
 			public const int imageView1 = 2131034112;
 			
 			// aapt resource value: 0x7f05001d
 			public const int img_logo = 2131034141;
 			
-			// aapt resource value: 0x7f050025
-			public const int lblExpenseCancel = 2131034149;
+			// aapt resource value: 0x7f050026
+			public const int lblExpenseCancel = 2131034150;
 			
 			// aapt resource value: 0x7f050022
 			public const int lbl_cadastre = 2131034146;
@@ -126,8 +129,8 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f05001a
 			public const int linearLayout1 = 2131034138;
 			
-			// aapt resource value: 0x7f050028
-			public const int listaMateriais = 2131034152;
+			// aapt resource value: 0x7f050029
+			public const int listaMateriais = 2131034153;
 			
 			// aapt resource value: 0x7f050023
 			public const int tableRow1 = 2131034147;
@@ -218,7 +221,10 @@ namespace ChiquitoMarmoraria
 			public const int MenuAdministrador = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int VisualizacaoMateriais = 2130903045;
+			public const int MenuUsuario = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int VisualizacaoMateriais = 2130903046;
 			
 			static Layout()
 			{

@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_nome"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#3F433E" />
     <TextView
         android:text="E-mail:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -44,7 +45,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_email"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#3F433E" />
     <TextView
         android:text="Digite uma senha:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -62,7 +64,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_senha"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#3F433E" />
     <TextView
         android:text="Digite a senha novamente:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -80,7 +83,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/txt_senha_repete"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#3F433E" />
     <Button
         android:text="Confirmar"
         android:layout_width="wrap_content"

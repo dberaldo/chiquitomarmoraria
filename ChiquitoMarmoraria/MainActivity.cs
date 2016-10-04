@@ -54,7 +54,8 @@ namespace ChiquitoMarmoraria
                 else
                 {
 
-					//Redireciona para a página Cadastro Login
+					
+                    //Redireciona para a página Cadastro Login
 					/*var intent = new Intent(this, typeof(CadastroLogin));
                     StartActivity(intent);*/
 					entrar();

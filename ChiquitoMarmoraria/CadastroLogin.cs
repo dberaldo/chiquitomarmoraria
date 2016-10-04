@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Android.Content;
 
 namespace ChiquitoMarmoraria
 {
@@ -46,7 +47,17 @@ namespace ChiquitoMarmoraria
                 }
 
             };
-		}
+
+            btnVoltar.Click += (object sender, EventArgs e) =>
+            {
+
+                //Redireciona para a página de Login
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+
+            };
+
+        }
 
         public void cadastroPessoa(string nome, string email, string senha)
         {

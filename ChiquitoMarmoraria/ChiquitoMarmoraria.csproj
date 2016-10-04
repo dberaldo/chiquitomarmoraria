@@ -106,6 +106,9 @@
     <AndroidResource Include="Resources\layout\VisualizacaoMateriais.axml" />
     <AndroidResource Include="Resources\drawable\recarregar.png" />
     <AndroidResource Include="Resources\layout\DetalhesMaterial.axml" />
+    <AndroidResource Include="Resources\layout\MenuUsuario.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
