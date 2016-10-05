@@ -84,6 +84,8 @@ namespace ChiquitoMarmoraria
             catch (MySqlException ex)
             {
                 Console.WriteLine(ex.Message);
+                Toast.MakeText(this, "Usuário ou senha incorreta.", ToastLength.Short).Show();
+
             }
             finally
             {

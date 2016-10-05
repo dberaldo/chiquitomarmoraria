@@ -16,7 +16,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
+        android:id="@+id/lbl_bemvindo"
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
     <Button

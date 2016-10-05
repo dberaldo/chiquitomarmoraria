@@ -82,6 +82,7 @@
     <Compile Include="Resources\DataHelper\DataBase.cs" />
     <Compile Include="Resources\ListViewerAdapter.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
+    <Compile Include="Resources\MenuUsuario.cs" />
     <Compile Include="Resources\Model\Pessoa.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
