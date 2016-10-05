@@ -18,10 +18,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/lbl_bemvindo"
         android:paddingTop="15dp"
-        android:paddingBottom="15dp" />
+        android:paddingBottom="15dp"
+        android:gravity="center"
+        android:textColor="@android:color/black" />
     <Button
-        android:text="Button"
+        android:text="agendamentos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/btn_agendamento" />
+    <Button
+        android:text="calcular orçamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_orcamento" />
 </LinearLayout>

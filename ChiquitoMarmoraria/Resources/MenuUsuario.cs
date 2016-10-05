@@ -68,7 +68,7 @@ namespace ChiquitoMarmoraria.Resources
                 con.Close();
             }
 
-            lblBemvindo.Text = "Bem-vindo(a), " + nome;
+            lblBemvindo.Text = "Bem-vindo(a), " + nome + "!";
 
         }
     }

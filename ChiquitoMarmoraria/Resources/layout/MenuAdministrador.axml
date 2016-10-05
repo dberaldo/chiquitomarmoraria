@@ -32,4 +32,14 @@
             android:id="@+id/btnCadastrarMaterial"
             android:text="@string/Materiais" />
     </TableRow>
+    <Button
+        android:text="Agendamentos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_agendamentos" />
+    <Button
+        android:text="Solicitações"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_solicitacoes" />
 </LinearLayout>

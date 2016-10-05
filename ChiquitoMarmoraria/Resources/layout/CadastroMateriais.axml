@@ -2,57 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
     <TextView
         android:text="Nome do material"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <EditText
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtNomeMaterial" />
+        android:id="@+id/txtNomeMaterial"
+        android:textColor="#3F433E" />
     <TextView
         android:text="Categoria"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
+        android:id="@+id/textView3"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <EditText
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtCategoria" />
+        android:id="@+id/txtCategoria"
+        android:textColor="#3F433E" />
     <TextView
         android:text="Descrição"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5" />
+        android:id="@+id/textView5"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtDescricao" />
+        android:id="@+id/txtDescricao"
+        android:textColor="#3F433E" />
     <TextView
         android:text="Preço (m²)"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6" />
+        android:id="@+id/textView6"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPreco" />
+        android:id="@+id/txtPreco"
+        android:textColor="#3F433E" />
     <TextView
         android:text="Foto"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView7" />
+        android:id="@+id/textView7"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
@@ -63,4 +83,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnCadastrar" />
+    <Button
+        android:text="Voltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnVoltar" />
 </LinearLayout>

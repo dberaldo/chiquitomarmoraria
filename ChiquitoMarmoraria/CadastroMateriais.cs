@@ -4,6 +4,8 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ChiquitoMarmoraria
 {
@@ -15,6 +17,7 @@ namespace ChiquitoMarmoraria
 		EditText txtDescricao;
 		EditText txtPreco;
 		Button buttonCadastrar;
+        Button buttonVoltar;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -27,36 +30,59 @@ namespace ChiquitoMarmoraria
 			txtDescricao = FindViewById<EditText>(Resource.Id.txtDescricao);
 			txtPreco = FindViewById<EditText>(Resource.Id.txtPreco);
 			buttonCadastrar = FindViewById<Button>(Resource.Id.btnCadastrar);
+            buttonVoltar = FindViewById<Button>(Resource.Id.btnVoltar);
 
 			buttonCadastrar.Click += (object sender, EventArgs e) =>
 			{
-				cadastroMaterial(txtNomeMaterial.Text, txtCategoria.Text, txtDescricao.Text, txtPreco.Text);
-			};
-		}
+                MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
 
-		public void cadastroMaterial(string nome, string categoria, string descricao, string preco)
-		{
-			DBAdapter database = new DBAdapter(this);
-			database.openDB();
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                        Console.WriteLine("Conectado com sucesso!");
 
-			try
-			{
-				if (database.inserirDados(nome, categoria, descricao, Convert.ToDouble(preco)))
-				{
-					txtNomeMaterial.Text = "";
-					txtCategoria.Text = "";
-					txtDescricao.Text = "";
-					txtPreco.Text = "";
-					Toast.MakeText(this, "Material cadastrado com sucesso.", ToastLength.Short).Show();
-				}
-			}
-			catch (FormatException f_e)
-			{
-				Console.WriteLine(f_e.Message);
-				Toast.MakeText(this, "Não foi possível cadastrar o material.", ToastLength.Short).Show();
-			}
+                        Console.WriteLine("antes do comando");
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO material (nome, categoria, descricao, preco) VALUES (@nome, @categoria, @descricao, @preco)", con);
+                        cmd.Parameters.AddWithValue("@nome", txtNomeMaterial.Text);
+                        cmd.Parameters.AddWithValue("@categoria", txtCategoria.Text);
+                        cmd.Parameters.AddWithValue("@descricao", txtDescricao.Text);
+                        cmd.Parameters.AddWithValue("@preco", txtPreco.Text);
 
-			database.closeDB();
-		}
+                        Console.WriteLine("antes do executa");
+                        cmd.ExecuteNonQuery();
+                        txtNomeMaterial.Text = "";
+                        txtCategoria.Text = "";
+                        txtDescricao.Text = "";
+                        txtPreco.Text = "";
+                        Toast.MakeText(this, "Material cadastrado com sucesso.", ToastLength.Short).Show();
+                    }
+
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Toast.MakeText(this, "Não foi possível cadastrar o material.", ToastLength.Short).Show();
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+               // con.Close();
+
+            };
+
+            buttonVoltar.Click += (object sender, EventArgs e) =>
+            {
+                var intent = new Intent(this, typeof(VisualizacaoMateriais));
+                StartActivity(intent);
+                Finish();
+            };
+        }
+           
 	}
 }

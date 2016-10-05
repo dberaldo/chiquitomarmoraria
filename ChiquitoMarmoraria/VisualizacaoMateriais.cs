@@ -6,6 +6,10 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Widget;
+using MySql.Data.MySqlClient;
+using System.Data;
+using System.Collections.Generic;
+using Java.Util;
 
 namespace ChiquitoMarmoraria
 {
@@ -16,7 +20,7 @@ namespace ChiquitoMarmoraria
 		Button btnAtualizar;
 		ListView lista;
 		JavaList<string> materiaisDisplay = new JavaList<string>();
-		Material[] materiais;
+		List<Material> materiais = new List<Material>();
 		ArrayAdapter adapter;
 
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -33,21 +37,22 @@ namespace ChiquitoMarmoraria
 			retrieve();
 
 			lista.ItemClick += (sender, e) => {
-				Material m = (Material)materiais[e.Position];
 				var intent = new Intent(this, typeof(DetalhesMaterial));
-				intent.PutExtra("id", m.Id);
-				intent.PutExtra("nome", m.Nome);
-				intent.PutExtra("categoria", m.Categoria);
-				intent.PutExtra("descricao", m.Descricao);
-				intent.PutExtra("preco", m.Preco);
+				intent.PutExtra("id", materiais[e.Position].Id);
+				intent.PutExtra("nome", materiais[e.Position].Nome);
+				intent.PutExtra("categoria", materiais[e.Position].Categoria);
+				intent.PutExtra("descricao", materiais[e.Position].Descricao);
+				intent.PutExtra("preco", materiais[e.Position].Preco);
 
 				StartActivity(intent);
+                Finish();
 			};
 
 			btnAdd.Click += (sender, e) => 
 			{
 				var intent = new Intent(this, typeof(CadastroMateriais));
 				StartActivity(intent);
+                Finish();
 			};
 
 			btnAtualizar.Click += (sender, e) => 
@@ -58,40 +63,62 @@ namespace ChiquitoMarmoraria
 
 		public void retrieve()
 		{
-			DBAdapter db = new DBAdapter(this);
-			db.openDB();
 
-			ICursor c = db.recuperarDados();
+            MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
 
-			materiaisDisplay.Clear();
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    Console.WriteLine("Conectado com sucesso!");
+                }
 
-			while (c.MoveToNext())
-			{
-				string nomeMaterial = c.GetString(1);
-				materiaisDisplay.Add(nomeMaterial);
-				Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
-			}
+                MySqlCommand cmd = new MySqlCommand("Select id, nome, categoria, descricao, preco from material", con);
+                
+                Material mat = new Material();
 
-			materiais = InicializarArray<Material>(materiaisDisplay.Size());
-			c.MoveToFirst();
+                //materiais = InicializarArray<Material>(materiaisDisplay.Size());
 
-			int i = 0;
-			do
-			{
-				materiais[i].Id = c.GetInt(0);
-				materiais[i].Nome = c.GetString(1);
-				materiais[i].Categoria = c.GetString(2);
-				materiais[i].Descricao = c.GetString(3);
-				materiais[i].Preco = c.GetDouble(4);
-				i++;
-			} while (c.MoveToNext());
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("Passou execute reader!");
 
-			if (materiaisDisplay.Size() > 0)
-			{
-				lista.Adapter = adapter;
-			}
+                    while (reader.Read())
+                    {
+                        materiaisDisplay.Add(reader["nome"].ToString());
+                        Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
 
-			db.closeDB();
+                        mat.Id = (int)reader["id"];
+                        mat.Nome = reader["nome"].ToString();
+                        mat.Categoria = reader["categoria"].ToString();
+                        mat.Descricao = reader["descricao"].ToString();
+                        mat.Preco = (float)reader["preco"];
+
+                        Console.WriteLine("Id= "+mat.Id+" Nome= "+ mat.Nome+" Cat= "+ mat.Categoria);
+                        Console.WriteLine("descr= " + mat.Descricao + "preco= " + mat.Preco);
+
+                        materiais.Add(mat);
+                        
+                    }
+
+                   
+                }
+
+                if (materiaisDisplay.Size() > 0)
+                {
+                    lista.Adapter = adapter;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }	
+		
 		}
 
 		T[] InicializarArray<T>(int length) where T : new()

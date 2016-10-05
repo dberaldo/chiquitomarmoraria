@@ -11,4 +11,5 @@ namespace ChiquitoMarmoraria
 		public string Descricao { get; set; }
 		public double Preco { get; set; }
 	}
+
 }
