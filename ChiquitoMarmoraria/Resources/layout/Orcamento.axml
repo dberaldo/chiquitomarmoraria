@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@android:color/background_light">
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1" />
+    <TextView
+        android:text="Orçamento Automático"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
+    <TextView
+        android:text="Material:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbl_material"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spn_material" />
+    <TextView
+        android:text="Largura:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbl_largura"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_largura"
+        android:textColor="#3F433E" />
+    <TextView
+        android:text="Altura:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbl_altura"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_altura"
+        android:textColor="#3F433E" />
+    <TextView
+        android:text="Quantidade:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lbl_qtd"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_qtd"
+        android:textColor="#3F433E" />
+    <Button
+        android:text="Calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_calcular"
+        android:paddingTop="10dp" />
+</LinearLayout>

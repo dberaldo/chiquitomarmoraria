@@ -72,43 +72,50 @@ namespace ChiquitoMarmoraria
                 {
                     con.Open();
                     Console.WriteLine("Conectado com sucesso!");
-                }
 
-                MySqlCommand cmd = new MySqlCommand("Select id, nome, categoria, descricao, preco from material", con);
-                
-                Material mat = new Material();
+                    MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco from material", con);
 
-                //materiais = InicializarArray<Material>(materiaisDisplay.Size());
+                    Console.WriteLine("Passou comando!");
 
-                using (MySqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Console.WriteLine("Passou execute reader!");
+                    Material mat = new Material();
 
-                    while (reader.Read())
+                    //materiais = InicializarArray<Material>(materiaisDisplay.Size());
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        materiaisDisplay.Add(reader["nome"].ToString());
-                        Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
+                        Console.WriteLine("Passou execute reader!");
+                        int id = reader.GetOrdinal("id");
 
-                        mat.Id = (int)reader["id"];
-                        mat.Nome = reader["nome"].ToString();
-                        mat.Categoria = reader["categoria"].ToString();
-                        mat.Descricao = reader["descricao"].ToString();
-                        mat.Preco = (float)reader["preco"];
+                        while (reader.Read())
+                        {
+                            materiaisDisplay.Add(reader["nome"].ToString());
+                            Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
 
-                        Console.WriteLine("Id= "+mat.Id+" Nome= "+ mat.Nome+" Cat= "+ mat.Categoria);
-                        Console.WriteLine("descr= " + mat.Descricao + "preco= " + mat.Preco);
+                            mat.Id = reader.GetInt32(id);
+                            mat.Nome = reader["nome"].ToString();
+                            mat.Categoria = reader["categoria"].ToString();
+                            mat.Descricao = reader["descricao"].ToString();
+                            mat.Preco = reader.GetDouble(4);
 
-                        materiais.Add(mat);
-                        
+                            Console.WriteLine("Id= " + mat.Id + " Nome= " + mat.Nome + " Cat= " + mat.Categoria);
+                            Console.WriteLine("descr= " + mat.Descricao + "preco= " + mat.Preco);
+
+                            materiais.Add(mat);
+
+                        }
+
+
                     }
 
-                   
+                    if (materiaisDisplay.Size() > 0)
+                    {
+                        lista.Adapter = adapter;
+                    }
+
+
+
                 }
 
-                if (materiaisDisplay.Size() > 0)
-                {
-                    lista.Adapter = adapter;
-                }
             }
             catch (MySqlException ex)
             {

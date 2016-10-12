@@ -20,14 +20,21 @@ namespace ChiquitoMarmoraria.Resources
     public class MenuUsuario : Activity
     {
         TextView lblBemvindo;
+        Button btnOrcamento;
+        Button btnAgendamento;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.MenuUsuario);
+
             lblBemvindo = FindViewById<TextView>(Resource.Id.lbl_bemvindo);
             string id = Intent.GetStringExtra("id") ?? "Data not available";
+
+            btnOrcamento = FindViewById<Button>(Resource.Id.btn_orcamento);
+            btnAgendamento = FindViewById<Button>(Resource.Id.btn_agendamento);
+
 
             MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
 
@@ -69,6 +76,13 @@ namespace ChiquitoMarmoraria.Resources
             }
 
             lblBemvindo.Text = "Bem-vindo(a), " + nome + "!";
+
+            btnOrcamento.Click += (object sender, EventArgs e) =>
+            {
+                var intent = new Intent(this, typeof(Orcamento));
+                StartActivity(intent);
+                Finish();
+            };
 
         }
     }

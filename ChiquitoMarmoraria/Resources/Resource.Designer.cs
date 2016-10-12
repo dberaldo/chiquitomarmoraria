@@ -66,11 +66,11 @@ namespace ChiquitoMarmoraria
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05002a
-			public const int btnAdicionar = 2131034154;
+			// aapt resource value: 0x7f050034
+			public const int btnAdicionar = 2131034164;
 			
-			// aapt resource value: 0x7f05002b
-			public const int btnAtualizar = 2131034155;
+			// aapt resource value: 0x7f050035
+			public const int btnAtualizar = 2131034165;
 			
 			// aapt resource value: 0x7f050014
 			public const int btnCadastrar = 2131034132;
@@ -93,6 +93,9 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f050024
 			public const int btn_agendamentos = 2131034148;
 			
+			// aapt resource value: 0x7f050031
+			public const int btn_calcular = 2131034161;
+			
 			// aapt resource value: 0x7f050009
 			public const int btn_confirmar = 2131034121;
 			
@@ -114,8 +117,11 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f05001c
 			public const int img_logo = 2131034140;
 			
-			// aapt resource value: 0x7f050029
-			public const int lblExpenseCancel = 2131034153;
+			// aapt resource value: 0x7f050033
+			public const int lblExpenseCancel = 2131034163;
+			
+			// aapt resource value: 0x7f05002d
+			public const int lbl_altura = 2131034157;
 			
 			// aapt resource value: 0x7f050026
 			public const int lbl_bemvindo = 2131034150;
@@ -129,11 +135,20 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f050020
 			public const int lbl_esqueci = 2131034144;
 			
+			// aapt resource value: 0x7f05002b
+			public const int lbl_largura = 2131034155;
+			
 			// aapt resource value: 0x7f05001d
 			public const int lbl_login = 2131034141;
 			
+			// aapt resource value: 0x7f050029
+			public const int lbl_material = 2131034153;
+			
 			// aapt resource value: 0x7f050001
 			public const int lbl_nome = 2131034113;
+			
+			// aapt resource value: 0x7f05002f
+			public const int lbl_qtd = 2131034159;
 			
 			// aapt resource value: 0x7f050005
 			public const int lbl_senha = 2131034117;
@@ -144,8 +159,14 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f050019
 			public const int linearLayout1 = 2131034137;
 			
-			// aapt resource value: 0x7f05002c
-			public const int listaMateriais = 2131034156;
+			// aapt resource value: 0x7f050036
+			public const int listaMateriais = 2131034166;
+			
+			// aapt resource value: 0x7f050032
+			public const int spinnerText = 2131034162;
+			
+			// aapt resource value: 0x7f05002a
+			public const int spn_material = 2131034154;
 			
 			// aapt resource value: 0x7f050022
 			public const int tableRow1 = 2131034146;
@@ -186,14 +207,23 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f050012
 			public const int txtPreco = 2131034130;
 			
+			// aapt resource value: 0x7f05002e
+			public const int txt_altura = 2131034158;
+			
 			// aapt resource value: 0x7f050004
 			public const int txt_email = 2131034116;
+			
+			// aapt resource value: 0x7f05002c
+			public const int txt_largura = 2131034156;
 			
 			// aapt resource value: 0x7f05001e
 			public const int txt_login = 2131034142;
 			
 			// aapt resource value: 0x7f050002
 			public const int txt_nome = 2131034114;
+			
+			// aapt resource value: 0x7f050030
+			public const int txt_qtd = 2131034160;
 			
 			// aapt resource value: 0x7f050006
 			public const int txt_senha = 2131034118;
@@ -233,7 +263,13 @@ namespace ChiquitoMarmoraria
 			public const int MenuUsuario = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int VisualizacaoMateriais = 2130903046;
+			public const int Orcamento = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int SppinerItem = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int VisualizacaoMateriais = 2130903048;
 			
 			static Layout()
 			{
