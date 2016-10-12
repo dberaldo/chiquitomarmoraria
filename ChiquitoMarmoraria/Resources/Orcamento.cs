@@ -41,7 +41,7 @@ namespace ChiquitoMarmoraria.Resources
             
             spinner.Adapter = new MySpinnerAdapter(this, Resource.Layout.SppinerItem, Resource.Id.spinnerText, listaMaterial);
             //spinner.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, listaMaterial);
-            Material escolhido; 
+            Material escolhido = new Material(); 
 
             spin_txt = FindViewById<TextView>(Resource.Id.spinnerText);
             txtAltura = FindViewById<EditText>(Resource.Id.txt_altura);
@@ -54,12 +54,12 @@ namespace ChiquitoMarmoraria.Resources
                 float altura = (float)Convert.ToDouble(txtAltura.Text);
                 float largura = (float)Convert.ToDouble(txtLargura.Text);
                 float qtd = (float)Convert.ToDouble(txtQtd.Text);
-
-                float resultado = altura * largura * qtd;
+                float preco = (float)Convert.ToDouble(escolhido.Preco);
+                float resultado = altura * largura * qtd * preco;
                 //exibir popup com valor do orçamento
             };
 
-
+             
             spinner.ItemSelected += (s, e) =>
             {
                 escolhido = new Material();
