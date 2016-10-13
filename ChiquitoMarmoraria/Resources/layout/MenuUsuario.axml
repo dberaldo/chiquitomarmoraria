@@ -22,13 +22,18 @@
         android:gravity="center"
         android:textColor="@android:color/black" />
     <Button
-        android:text="agendamentos"
+        android:text="Calcular Orçamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_orcamento" />
+    <Button
+        android:text="Socilicitar Agendamento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_agendamento" />
     <Button
-        android:text="calcular orçamento"
+        android:text="Meus Agendamentos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_orcamento" />
+        android:id="@+id/btn_meusagendamentos" />
 </LinearLayout>

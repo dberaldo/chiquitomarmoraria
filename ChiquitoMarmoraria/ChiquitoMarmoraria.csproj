@@ -65,6 +65,7 @@
     <Compile Include="Resources\ListViewerAdapter.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
+    <Compile Include="Resources\MeusAgendamentos.cs" />
     <Compile Include="Resources\Model\MySpinnerAdapter.cs" />
     <Compile Include="Resources\Model\Pessoa.cs" />
     <Compile Include="Resources\Orcamento.cs" />
@@ -107,6 +108,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\EdicaoMaterial.axml" />
     <AndroidResource Include="Resources\layout\AgendamentoUsuario.axml" />
+    <AndroidResource Include="Resources\layout\MeusAgendamentos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

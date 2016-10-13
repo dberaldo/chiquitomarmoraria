@@ -22,6 +22,7 @@ namespace ChiquitoMarmoraria.Resources
         TextView lblBemvindo;
         Button btnOrcamento;
         Button btnAgendamento;
+        Button btnMeusAgedamentos;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,6 +35,7 @@ namespace ChiquitoMarmoraria.Resources
 
             btnOrcamento = FindViewById<Button>(Resource.Id.btn_orcamento);
             btnAgendamento = FindViewById<Button>(Resource.Id.btn_agendamento);
+            btnMeusAgedamentos = FindViewById<Button>(Resource.Id.btn_meusagendamentos);
 
 
             MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
@@ -87,6 +89,15 @@ namespace ChiquitoMarmoraria.Resources
             btnAgendamento.Click += (object sender, EventArgs e) =>
             {
                 var intent = new Intent(this, typeof(AgendamentoUsuario));
+                intent.PutExtra("id", id);
+                StartActivity(intent);
+
+            };
+
+            btnMeusAgedamentos.Click += (object sender, EventArgs e) =>
+            {
+                var intent = new Intent(this, typeof(MeusAgendamentos));
+                intent.PutExtra("id", id);
                 StartActivity(intent);
             };
 
