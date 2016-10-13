@@ -20,6 +20,7 @@ namespace ChiquitoMarmoraria
 		TextView txtCategoria;
 		TextView txtDescricao;
 		TextView txtPreco;
+		Material m;
 		Button botaoEditarMaterial, botaoExcluirMaterial;
 
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -35,16 +36,17 @@ namespace ChiquitoMarmoraria
 			botaoEditarMaterial = FindViewById<Button>(Resource.Id.btnEditar);
 			botaoExcluirMaterial = FindViewById<Button>(Resource.Id.btnRemover);
 
-			int Id = Intent.GetIntExtra("id", 0);
-			string nome = Intent.GetStringExtra("nome");
-			string categoria = Intent.GetStringExtra("categoria");
-			string descricao = Intent.GetStringExtra("descricao");
-			double preco = Intent.GetDoubleExtra("preco", 0.00);
+			m = new Material();
+			m.Id = Intent.GetIntExtra("id", 0);
+			m.Nome = Intent.GetStringExtra("nome");
+			m.Categoria = Intent.GetStringExtra("categoria");
+			m.Descricao = Intent.GetStringExtra("descricao");
+			m.Preco = Intent.GetDoubleExtra("preco", 0.00);
 
-			txtNome.Text = nome;
-			txtCategoria.Text = categoria;
-			txtDescricao.Text = descricao;
-			txtPreco.Text = preco.ToString("0.00");
+			txtNome.Text = m.Nome;
+			txtCategoria.Text = m.Categoria;
+			txtDescricao.Text = m.Descricao;
+			txtPreco.Text = m.Preco.ToString("0.00");
 
 			botaoExcluirMaterial.Click += (sender, e) => 
 			{
@@ -52,15 +54,25 @@ namespace ChiquitoMarmoraria
 
 				db.openDB();
 
-				if (db.excluirDados(Id))
+				if (db.excluirDados(m.Id))
 				{
 					Toast.MakeText(this, "Material excluído com sucesso", ToastLength.Short).Show();
 				}
 
 				db.closeDB();
 			};
+
+			botaoEditarMaterial.Click += (sender, e) =>
+			{
+				var intent = new Intent(this, typeof(EdicaoMaterial));
+				intent.PutExtra("id", m.Id);
+				intent.PutExtra("nome", m.Nome);
+				intent.PutExtra("categoria", m.Categoria);
+				intent.PutExtra("descricao", m.Descricao);
+				intent.PutExtra("preco", m.Preco);
+
+				StartActivity(intent);
+			};
 		}
-
-
 	}
 }
