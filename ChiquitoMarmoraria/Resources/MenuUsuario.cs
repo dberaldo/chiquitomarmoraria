@@ -16,7 +16,7 @@ using ChiquitoMarmoraria.Resources;
 
 namespace ChiquitoMarmoraria.Resources
 {
-    [Activity(Label = "Cadastro")]
+    [Activity(Label = "Menu")]
     public class MenuUsuario : Activity
     {
         TextView lblBemvindo;
@@ -80,6 +80,13 @@ namespace ChiquitoMarmoraria.Resources
             btnOrcamento.Click += (object sender, EventArgs e) =>
             {
                 var intent = new Intent(this, typeof(Orcamento));
+                StartActivity(intent);
+                Finish();
+            };
+
+            btnAgendamento.Click += (object sender, EventArgs e) =>
+            {
+                var intent = new Intent(this, typeof(AgendamentoUsuario));
                 StartActivity(intent);
                 Finish();
             };

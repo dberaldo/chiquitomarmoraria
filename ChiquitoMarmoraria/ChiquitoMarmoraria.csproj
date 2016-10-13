@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="CadastroLogin.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\AgendamentoUsuario.cs" />
     <Compile Include="Resources\ListViewerAdapter.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
@@ -101,6 +102,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SppinerItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AgendamentoUsuario.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

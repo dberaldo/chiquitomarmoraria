@@ -55,6 +55,7 @@ namespace ChiquitoMarmoraria
                 else
                 {
                     MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
+                    //MySqlConnection con = new MySqlConnection("Server=localhost;Port=3306;database=pds2016;User Id=root;Password=;charset=utf8");
 
                     try
                     {
