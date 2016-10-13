@@ -19,6 +19,9 @@ namespace ChiquitoMarmoraria.Resources
         CalendarView calendario;
         Button btnAgendar;
         Button btnCancelar;
+        RadioButton rbMedicao;
+        RadioButton rbEntrega;
+        RadioButton rbInstalacao;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,11 +34,17 @@ namespace ChiquitoMarmoraria.Resources
             calendario = FindViewById<CalendarView>(Resource.Id.calendario);
             btnAgendar = FindViewById<Button>(Resource.Id.btn_agendar);
             btnCancelar = FindViewById<Button>(Resource.Id.btn_cancelar);
+            rbEntrega = FindViewById<RadioButton>(Resource.Id.rb_entrega);
+            rbMedicao = FindViewById<RadioButton>(Resource.Id.rb_medicao);
+            rbInstalacao = FindViewById<RadioButton>(Resource.Id.rb_instalacao);
+
+            RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroup1);
+            RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
 
             int day=0;
             int month=0;
             int year=0;
-
+       
             calendario.DateChange += (s, e) => {
                 day = e.DayOfMonth;
                 month = e.Month;
@@ -65,11 +74,28 @@ namespace ChiquitoMarmoraria.Resources
                 if (day == 0 && month == 0 && year == 0)
                 {
                     //Exibir mensagem de erro "Escolha uma data"
+                    Toast.MakeText(this, "Escolha uma data", ToastLength.Short).Show();
                 }
                 else
                 {
+                    int tipo_servico=0;
 
-                    //Cadastrar agendamento no banco (TABLE Agendamento columns id, data, tipo_servico, id_usuario, confirmado)
+                    if (radioButton.Id == Resource.Id.rb_entrega)
+                    {
+                        tipo_servico = 2;
+                    }
+                    else if (radioButton.Id == Resource.Id.rb_medicao)
+                    {
+                        tipo_servico = 1;
+                    }
+                    else if (radioButton.Id == Resource.Id.rb_instalacao)
+                    {
+                        tipo_servico = 3;
+                    }
+
+                    Console.WriteLine(tipo_servico);
+
+                    //Cadastrar agendamento no banco (TABLE Agendamento columns id, data, id_servico, id_usuario, confirmado)
                     //table deve ter uma coluna boolean "confirmado"
                     //tipo_servico = 1-Medição, 2-Entrega, 3-Instalação
                     //quando o usuario envia o agendamento a coluna confirmado deve ter valor false
