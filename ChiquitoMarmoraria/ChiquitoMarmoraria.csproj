@@ -66,6 +66,7 @@
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
     <Compile Include="Resources\MeusAgendamentos.cs" />
+    <Compile Include="Resources\Model\Agendamento.cs" />
     <Compile Include="Resources\Model\MySpinnerAdapter.cs" />
     <Compile Include="Resources\Model\Pessoa.cs" />
     <Compile Include="Resources\Orcamento.cs" />

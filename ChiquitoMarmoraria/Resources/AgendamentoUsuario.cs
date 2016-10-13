@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ChiquitoMarmoraria.Resources
 {
@@ -78,6 +80,7 @@ namespace ChiquitoMarmoraria.Resources
                 }
                 else
                 {
+                    DateTime data = new DateTime(year, month, day);
                     int tipo_servico=0;
 
                     if (radioButton.Id == Resource.Id.rb_entrega)
@@ -98,16 +101,43 @@ namespace ChiquitoMarmoraria.Resources
                     //Cadastrar agendamento no banco (TABLE Agendamento columns id, data, id_servico, id_usuario, confirmado)
                     //table deve ter uma coluna boolean "confirmado"
                     //tipo_servico = 1-Medição, 2-Entrega, 3-Instalação
-                    //quando o usuario envia o agendamento a coluna confirmado deve ter valor false
-                    //somente terá valor true quando o adm confirmar a solicitacao de agendamento
+                    
+                    MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
+                    
+                    try
+                    {
+                        if (con.State == ConnectionState.Closed)
+                        {
+                            con.Open();
+                            Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
+                            MySqlCommand cmd = new MySqlCommand("INSERT INTO agendamento (data, id_servico, id_usuario, confirmado) VALUES (@data, @id_servico, @id_usuario, @confirmado)", con);
+                            cmd.Parameters.AddWithValue("@data", data);
+                            cmd.Parameters.AddWithValue("@id_servico", tipo_servico);
+                            cmd.Parameters.AddWithValue("@id_usuario", id);
+                            cmd.Parameters.AddWithValue("@confirmado", false);
+                            cmd.ExecuteNonQuery();
+                            //quando o usuario envia o agendamento a coluna confirmado deve ter valor false
+                            //somente terá valor true quando o adm confirmar a solicitacao de agendamento
 
-                    // apos cadastrar o agendamento no banco exibir uma mensaeg para o usaurio
-                    // informando que a solicitaçao está pendente e que quando for confirmada uma mensagem será enviada
-                    // ou algo do tipo
+                            // apos cadastrar o agendamento no banco exibir uma mensaeg para o usaurio
+                            // informando que a solicitaçao está pendente 
+                            Toast.MakeText(this, "Agendamento solicitado com sucesso. Confira o status do agendamento no menu Meus Agendamentos!", ToastLength.Short).Show();
+                        }
+                    }
+                    catch (MySqlException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        Toast.MakeText(this, "Erro ao solicitar agendamento!", ToastLength.Short).Show();
 
-
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+                    
                     //apos exibir mensagem chamar tela meus agendamentos
                     var intent = new Intent(this, typeof(MeusAgendamentos));
+                    intent.PutExtra("id", id);
                     StartActivity(intent);
                     Finish();
 
