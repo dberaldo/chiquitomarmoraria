@@ -88,7 +88,6 @@ namespace ChiquitoMarmoraria.Resources
             {
                 var intent = new Intent(this, typeof(AgendamentoUsuario));
                 StartActivity(intent);
-                Finish();
             };
 
         }

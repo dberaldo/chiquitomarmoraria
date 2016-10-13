@@ -21,11 +21,60 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
+    <TextView
+        android:text="Selecione uma data:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/calendarView1"
+        android:layout_height="300px"
+        android:id="@+id/calendario"
         android:focusedMonthDateColor="@android:color/black"
         android:unfocusedMonthDateColor="@android:color/darker_gray"
         android:layout_gravity="center" />
+    <TextView
+        android:text="Selecione o tipo de serviço:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
+    <RadioGroup
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup1">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Medição"
+            android:textColor="@android:color/black"
+            android:id="@+id/rb_medicao" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrega"
+            android:textColor="@android:color/black"
+            android:id="@+id/rb_entrega" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instalação"
+            android:textColor="@android:color/black"
+            android:id="@+id/rb_instalacao" />
+    </RadioGroup>
+    <Button
+        android:text="Agendar Serviço"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_agendar" />
 </LinearLayout>
