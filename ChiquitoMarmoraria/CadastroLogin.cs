@@ -61,7 +61,7 @@ namespace ChiquitoMarmoraria
 
         public void cadastroPessoa(string nome, string email, string senha)
         {
-            MySqlConnection con = new MySqlConnection("Server=db4free.net;Port=3306;database=ufscarpds;User Id=ufscarpds;Password=19931993;charset=utf8");
+            MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 
             try
             {
