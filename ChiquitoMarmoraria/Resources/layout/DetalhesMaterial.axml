@@ -64,6 +64,19 @@
         android:id="@+id/txtPreco"
         android:textColor="#3F433E"
         android:gravity="center" />
+    <TextView
+        android:text="Foto:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textColor="#ff000000"
+        android:gravity="center" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewDetalhes" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

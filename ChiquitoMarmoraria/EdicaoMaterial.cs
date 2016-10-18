@@ -12,6 +12,9 @@ using Android.Views;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Android.Provider;
+using Android.Graphics;
+using System.IO;
 
 namespace ChiquitoMarmoraria
 {
@@ -25,6 +28,7 @@ namespace ChiquitoMarmoraria
 		EditText preco;
 		Button botaoSalvar;
 		Button botaoCancelar;
+		ImageView imagemEdicao;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -40,11 +44,20 @@ namespace ChiquitoMarmoraria
 			m.Categoria = Intent.GetStringExtra("categoria");
 			m.Descricao = Intent.GetStringExtra("descricao");
 			m.Preco = Intent.GetDoubleExtra("preco", 0.00);
+			m.Foto = Intent.GetByteArrayExtra("foto");
 
 			nome = FindViewById<EditText>(Resource.Id.editNomeMaterial);
 			categoria = FindViewById<EditText>(Resource.Id.editCategoria);
 			descricao = FindViewById<EditText>(Resource.Id.editDescricao);
 			preco = FindViewById<EditText>(Resource.Id.editPreco);
+			imagemEdicao = FindViewById<ImageView>(Resource.Id.imagemViewEdicao);
+
+			if(m.Foto != null)
+			{
+				Bitmap bmp = BitmapFactory.DecodeByteArray(m.Foto, 0, m.Foto.Length);
+				imagemEdicao.SetImageBitmap(bmp);
+			}
+
 			botaoSalvar = FindViewById<Button>(Resource.Id.btnSalvarEdicao);
 			botaoCancelar = FindViewById<Button>(Resource.Id.btnCancelar);
 

@@ -12,6 +12,10 @@ using Android.Views;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Android.Graphics;
+using System.Drawing;
+using System.IO;
+using System.Windows;
 
 namespace ChiquitoMarmoraria
 {
@@ -24,6 +28,7 @@ namespace ChiquitoMarmoraria
 		TextView txtPreco;
 		Material m;
 		Button botaoEditarMaterial, botaoExcluirMaterial, botaoVoltar;
+		ImageView imagemDetalhes;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -38,13 +43,39 @@ namespace ChiquitoMarmoraria
 			botaoEditarMaterial = FindViewById<Button>(Resource.Id.btnEditar);
 			botaoExcluirMaterial = FindViewById<Button>(Resource.Id.btnRemover);
 			botaoVoltar = FindViewById<Button>(Resource.Id.btnVoltar);
-
+			imagemDetalhes = FindViewById<ImageView>(Resource.Id.imageViewDetalhes);
+				
 			m = new Material();
 			m.Id = Intent.GetIntExtra("id", 0);
 			m.Nome = Intent.GetStringExtra("nome");
 			m.Categoria = Intent.GetStringExtra("categoria");
 			m.Descricao = Intent.GetStringExtra("descricao");
 			m.Preco = Intent.GetDoubleExtra("preco", 0.00);
+			m.Foto = Intent.GetByteArrayExtra("foto");
+
+			Console.WriteLine("Length dos bytes: " + m.Foto.Length);
+
+			if (m.Foto.Length > 0)
+			{
+				Console.WriteLine("Foto NÃO é null");
+				Bitmap bmp = BitmapFactory.DecodeByteArray(m.Foto, 0, m.Foto.Length);
+
+				if(bmp == null)
+				{
+					Console.WriteLine("ImageData no Detalhes: " + Encoding.Default.GetString(m.Foto));
+					Console.WriteLine("Nao deu pra carregar o bitmap.");
+				}
+				else
+				{
+					Console.WriteLine("Deu pra carregar o bitmap.");
+				}
+
+				imagemDetalhes.SetImageBitmap(bmp);
+			}
+			else
+			{
+				Console.WriteLine("Foto é null");
+			}
 
 			txtNome.Text = m.Nome;
 			txtCategoria.Text = m.Categoria;

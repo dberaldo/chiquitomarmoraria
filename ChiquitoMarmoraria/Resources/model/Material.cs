@@ -10,6 +10,7 @@ namespace ChiquitoMarmoraria
 		public string Categoria { get; set; }
 		public string Descricao { get; set; }
 		public double Preco { get; set; }
+		public byte[] Foto { get; set; }
 	}
 
 }

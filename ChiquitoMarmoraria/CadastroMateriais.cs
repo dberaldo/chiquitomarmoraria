@@ -6,6 +6,10 @@ using Android.OS;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.IO;
+using Android.Graphics;
+using Android.Provider;
+using Android.Util;
 
 namespace ChiquitoMarmoraria
 {
@@ -20,6 +24,7 @@ namespace ChiquitoMarmoraria
         Button buttonVoltar;
 		public static readonly int PickImageId = 1000;
 		ImageView imageMaterial;
+		byte[] imagemArray;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -47,11 +52,12 @@ namespace ChiquitoMarmoraria
                         Console.WriteLine("Conectado com sucesso!");
 
                         Console.WriteLine("antes do comando");
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO material (nome, categoria, descricao, preco) VALUES (@nome, @categoria, @descricao, @preco)", con);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO material (nome, categoria, descricao, preco, foto) VALUES (@nome, @categoria, @descricao, @preco, @imagem)", con);
                         cmd.Parameters.AddWithValue("@nome", txtNomeMaterial.Text);
                         cmd.Parameters.AddWithValue("@categoria", txtCategoria.Text);
                         cmd.Parameters.AddWithValue("@descricao", txtDescricao.Text);
                         cmd.Parameters.AddWithValue("@preco", txtPreco.Text);
+						cmd.Parameters.AddWithValue("@imagem", imagemArray);
 
                         Console.WriteLine("antes do executa");
                         cmd.ExecuteNonQuery();
@@ -106,6 +112,13 @@ namespace ChiquitoMarmoraria
 			{
 				Android.Net.Uri uri = data.Data;
 				imageMaterial.SetImageURI(uri);
+
+				Bitmap foto_bitmap = null;
+				foto_bitmap = MediaStore.Images.Media.GetBitmap(this.ContentResolver, uri);
+
+				MemoryStream stream = new MemoryStream();
+				foto_bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, stream);
+				imagemArray = stream.ToArray();
 			}
 		}
            

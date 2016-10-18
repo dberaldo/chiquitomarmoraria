@@ -8,7 +8,9 @@ using Android.Runtime;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Text;
 using System.Collections.Generic;
+using System.IO;
 using Java.Util;
 
 namespace ChiquitoMarmoraria
@@ -43,6 +45,7 @@ namespace ChiquitoMarmoraria
 				intent.PutExtra("categoria", materiais[e.Position].Categoria);
 				intent.PutExtra("descricao", materiais[e.Position].Descricao);
 				intent.PutExtra("preco", materiais[e.Position].Preco);
+				intent.PutExtra("foto", materiais[e.Position].Foto);
 
 				StartActivity(intent);
                 Finish();
@@ -69,15 +72,6 @@ namespace ChiquitoMarmoraria
 				materiais.Clear();
 			}
 
-			Console.WriteLine("Mateirais antes de dar retrieve: ");
-			for (int i = 0; i < materiais.Count; i++)
-			{
-				Console.WriteLine("i = " + i);
-				Console.WriteLine("id: " + materiais[i].Id);
-				Console.WriteLine("Nome: " + materiais[i].Nome);
-			}
-
-
 			MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 
             try
@@ -87,7 +81,7 @@ namespace ChiquitoMarmoraria
                     con.Open();
                     Console.WriteLine("Conectado com sucesso!");
 
-                    MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco from material", con);
+                    MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco, foto from material", con);
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -96,26 +90,26 @@ namespace ChiquitoMarmoraria
                         while (reader.Read())
                         {
                             materiaisDisplay.Add(reader["nome"].ToString());
-                            Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
 
-							materiais.Add(new Material() { Id = reader.GetInt32(id), Nome = reader["nome"].ToString(), Categoria = reader["categoria"].ToString(), Descricao = reader["descricao"].ToString(), Preco = reader.GetDouble(4)} );
+							/* Lendo a foto */
+							int bufferSize = 65535;
+							byte[] ImageData = new byte[bufferSize];
 
-							Console.WriteLine("Loop com k: " + materiais.Count);
-							for (int k = 0; k < materiais.Count; k++)
+							if(reader["foto"] == null)
 							{
-								Console.WriteLine("id: " + materiais[k].Id);
-								Console.WriteLine("Nome: " + materiais[k].Nome);
+								Console.WriteLine("Não tem foto!!!");
 							}
+							else
+							{
+								Console.WriteLine("Tem foto.");
+							}
+
+							reader.GetBytes(reader.GetOrdinal("foto"), 0, ImageData, 0, bufferSize );
+
+							//Console.WriteLine("ImageData: " + Encoding.Default.GetString(ImageData));
+
+							materiais.Add(new Material() { Id = reader.GetInt32(id), Nome = reader["nome"].ToString(), Categoria = reader["categoria"].ToString(), Descricao = reader["descricao"].ToString(), Preco = reader.GetDouble(4), Foto = ImageData} );
                         }
-
-						Console.WriteLine("Materiais depois de dar retrieve: Count: " + materiais.Count);
-						for (int i = 0; i < materiais.Count; i++)
-						{
-							Console.WriteLine("i = " + i);
-							Console.WriteLine("id: " + materiais[i].Id);
-							Console.WriteLine("Nome: " + materiais[i].Nome);
-						}
-
                     }
 
                     if (materiaisDisplay.Size() > 0)
