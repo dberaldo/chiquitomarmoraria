@@ -20,7 +20,9 @@
         android:textColor="@android:color/black"
         android:gravity="center"
         android:paddingTop="15dp"
-        android:paddingBottom="15dp" />
+        android:paddingBottom="15dp"
+        android:layout_marginBottom="0.0dp"
+        android:layout_marginTop="0.0dp" />
     <TextView
         android:text="Material:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -34,9 +36,10 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spn_material" />
+        android:id="@+id/spn_material"
+        android:background="@color/cardview_light_background" />
     <TextView
-        android:text="Largura:"
+        android:text="Largura (m):"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +55,7 @@
         android:id="@+id/txt_largura"
         android:textColor="#3F433E" />
     <TextView
-        android:text="Altura:"
+        android:text="Altura (m):"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
