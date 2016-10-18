@@ -78,6 +78,10 @@ namespace ChiquitoMarmoraria.Resources
                 escolhido.Categoria = listaMaterial[e.Position].Categoria;
                 escolhido.Descricao = listaMaterial[e.Position].Descricao;
                 escolhido.Preco = listaMaterial[e.Position].Preco;
+
+                TextView textView = (e.Parent.GetChildAt(0) as TextView);
+                textView.SetTextColor(Android.Graphics.Color.Black);
+                textView.SetText(escolhido.Nome, TextView.BufferType.Normal);
             };
 
 
