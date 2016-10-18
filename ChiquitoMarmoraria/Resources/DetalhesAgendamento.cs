@@ -21,6 +21,7 @@ namespace ChiquitoMarmoraria.Resources
         TextView txtData;
         TextView txtStatus;
         Agendamento a;
+        Button btnVoltar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,6 +33,7 @@ namespace ChiquitoMarmoraria.Resources
             txtTipo = FindViewById<TextView>(Resource.Id.txt_tipo);
             txtStatus = FindViewById<TextView>(Resource.Id.txt_status);
             txtData = FindViewById<TextView>(Resource.Id.txt_data);
+            btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
 
             int dia = Intent.GetIntExtra("day", 0);
             int mes = Intent.GetIntExtra("month", 0);
@@ -60,6 +62,11 @@ namespace ChiquitoMarmoraria.Resources
 
             txtData.Text = dia + "/" + mes + "/" + ano;
 
-        }
+            btnVoltar.Click += (sender, e) =>
+            {
+                Finish();
+            };
+
+            }
     }
 }

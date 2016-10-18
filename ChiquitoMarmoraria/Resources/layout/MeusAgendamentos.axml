@@ -36,4 +36,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/listaAgendamentos" />
     </LinearLayout>
+    <Button
+        android:text="Voltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:id="@+id/btn_voltar" />
 </LinearLayout>

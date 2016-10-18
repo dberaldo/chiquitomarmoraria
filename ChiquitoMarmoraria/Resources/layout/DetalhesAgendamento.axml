@@ -6,6 +6,11 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:background="@android:color/background_light">
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1" />
     <TextView
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -48,4 +53,10 @@
         android:id="@+id/txt_status"
         android:textColor="#3F433E"
         android:gravity="center" />
+    <Button
+        android:text="Voltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:id="@+id/btn_voltar" />
 </LinearLayout>

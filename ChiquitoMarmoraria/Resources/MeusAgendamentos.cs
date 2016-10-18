@@ -33,11 +33,17 @@ namespace ChiquitoMarmoraria.Resources
 
             string id = Intent.GetStringExtra("id") ?? "Data not available";
 
-
+            btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
             listaAgendamentos = FindViewById<ListView>(Resource.Id.listaAgendamentos);
             adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, agendamentosDisplay);
 
             retrieve(id);
+
+
+            btnVoltar.Click += (sender, e) =>
+            {
+                Finish();
+            };
 
             listaAgendamentos.ItemClick += (sender, e) => {
                 var intent = new Intent(this, typeof(DetalhesAgendamento));
