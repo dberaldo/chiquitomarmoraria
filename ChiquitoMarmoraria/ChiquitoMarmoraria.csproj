@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="CadastroLogin.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\AgendamentoAdapter.cs" />
     <Compile Include="Resources\AgendamentoUsuario.cs" />
     <Compile Include="Resources\DetalhesAgendamento.cs" />
     <Compile Include="Resources\ListViewerAdapter.cs" />
@@ -123,6 +124,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\DetalhesAgendamento.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ItemAgendamento.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

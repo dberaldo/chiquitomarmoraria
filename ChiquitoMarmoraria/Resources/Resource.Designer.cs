@@ -326,25 +326,28 @@ namespace ChiquitoMarmoraria
 			public const int EdicaoMaterial = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Main = 2130903046;
+			public const int ItemAgendamento = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int MenuAdministrador = 2130903047;
+			public const int Main = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int MenuUsuario = 2130903048;
+			public const int MenuAdministrador = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int MeusAgendamentos = 2130903049;
+			public const int MenuUsuario = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int Orcamento = 2130903050;
+			public const int MeusAgendamentos = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int SppinerItem = 2130903051;
+			public const int Orcamento = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int VisualizacaoMateriais = 2130903052;
+			public const int SppinerItem = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int VisualizacaoMateriais = 2130903053;
 			
 			static Layout()
 			{

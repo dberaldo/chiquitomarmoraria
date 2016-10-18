@@ -23,7 +23,8 @@ namespace ChiquitoMarmoraria.Resources
         ListView listaAgendamentos;
         JavaList<string> agendamentosDisplay = new JavaList<string>();
         List<Agendamento> agendamentos = new List<Agendamento>();
-        ArrayAdapter adapter;
+        //ArrayAdapter adapter;
+        AgendamentoAdapter adapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,8 +36,8 @@ namespace ChiquitoMarmoraria.Resources
 
             btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
             listaAgendamentos = FindViewById<ListView>(Resource.Id.listaAgendamentos);
-            adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, agendamentosDisplay);
-
+            //adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, agendamentosDisplay);
+            adapter = new AgendamentoAdapter(this, agendamentos);
             retrieve(id);
 
 
