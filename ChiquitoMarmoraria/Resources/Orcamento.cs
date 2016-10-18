@@ -57,6 +57,14 @@ namespace ChiquitoMarmoraria.Resources
                 float preco = (float)Convert.ToDouble(escolhido.Preco);
                 float resultado = altura * largura * qtd * preco;
                 //exibir popup com valor do orçamento
+                new AlertDialog.Builder(this)
+                    .SetNeutralButton("OK", (sender2, args) =>
+                    {
+                        // User pressed OK
+                    })
+                    .SetMessage("Seu orçamento é de R$ " + resultado)
+                    .SetTitle("Orçamento")
+                    .Show();
             };
 
              
