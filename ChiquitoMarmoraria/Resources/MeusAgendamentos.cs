@@ -38,6 +38,19 @@ namespace ChiquitoMarmoraria.Resources
             adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, agendamentosDisplay);
 
             retrieve(id);
+
+            listaAgendamentos.ItemClick += (sender, e) => {
+                var intent = new Intent(this, typeof(DetalhesAgendamento));
+                intent.PutExtra("id", agendamentos[e.Position].Id);
+                intent.PutExtra("idservico", agendamentos[e.Position].IdServico);
+                intent.PutExtra("idusuario", agendamentos[e.Position].IdUsuario);
+                intent.PutExtra("day", agendamentos[e.Position].Data.Day);
+                intent.PutExtra("month", agendamentos[e.Position].Data.Month);
+                intent.PutExtra("year", agendamentos[e.Position].Data.Year);
+                intent.PutExtra("status", agendamentos[e.Position].Confirmado);
+
+                StartActivity(intent);
+            };
         }
 
 
