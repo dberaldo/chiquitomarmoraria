@@ -14,6 +14,9 @@ namespace ChiquitoMarmoraria
 	public class MenuAdministrador : Activity
 	{
 		Button btnCadastroMaterial;
+		Button btnSolicitacoes;
+		Button btnAgendamentos;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -25,6 +28,22 @@ namespace ChiquitoMarmoraria
 			btnCadastroMaterial.Click += (sender, e) => 
 			{
 				var intent = new Intent(this, typeof(VisualizacaoMateriais));
+				StartActivity(intent);
+			};
+
+			btnAgendamentos = FindViewById<Button>(Resource.Id.btn_agendamentos);
+
+			btnAgendamentos.Click += (sender, e) =>
+			{
+				var intent = new Intent(this, typeof(AgendamentoAdministrador));
+				StartActivity(intent);
+			};
+
+			btnSolicitacoes = FindViewById<Button>(Resource.Id.btn_solicitacoes);
+
+			btnSolicitacoes.Click += (sender, e) =>
+			{
+				var intent = new Intent(this, typeof(Solicitacoes));
 				StartActivity(intent);
 			};
 		}

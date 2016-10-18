@@ -47,11 +47,11 @@ namespace ChiquitoMarmoraria.Resources
             a.Confirmado = Intent.GetIntExtra("status", 0);
 
             if (a.IdServico == 1)
-                txtTipo.Text = "Medição";
+                txtTipo.Text = "Medicao";
             else if (a.IdServico == 2)
                 txtTipo.Text = "Entrega";
             else if (a.IdServico == 3)
-                txtTipo.Text = "Instalação";
+                txtTipo.Text = "Instalacao";
 
             if (a.Confirmado == -1)
                 txtStatus.Text = "Pendente";

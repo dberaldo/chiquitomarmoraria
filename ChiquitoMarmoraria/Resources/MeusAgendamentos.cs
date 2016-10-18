@@ -111,11 +111,11 @@ namespace ChiquitoMarmoraria.Resources
 
                             agendamentos.Add(a);
                             if (a.IdServico == 1)
-                                agendamentosDisplay.Add("Medição");
+                                agendamentosDisplay.Add("Medi??o");
                             else if (a.IdServico == 2)
                                 agendamentosDisplay.Add("Entrega");
                             else if (a.IdServico == 3)
-                                agendamentosDisplay.Add("Instalação");
+                                agendamentosDisplay.Add("Instala??o");
 
                         }
 

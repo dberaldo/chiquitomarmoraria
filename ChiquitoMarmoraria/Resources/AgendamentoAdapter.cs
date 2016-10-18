@@ -54,11 +54,11 @@ namespace ChiquitoMarmoraria.Resources
             var txtStatus = view.FindViewById<TextView>(Resource.Id.txt_status);
 
             if (agendamentos[position].IdServico == 1)
-                txtTipo.Text = "Medição";
+                txtTipo.Text = "Medicao";
             else if (agendamentos[position].IdServico == 2)
                 txtTipo.Text = "Entrega";
             else if (agendamentos[position].IdServico == 3)
-                txtTipo.Text = "Instalação";
+                txtTipo.Text = "Instalacao";
 
             if (agendamentos[position].Confirmado == -1)
                 txtStatus.Text = "Status: Pendente";
