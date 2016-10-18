@@ -110,6 +110,8 @@ namespace ChiquitoMarmoraria
 
 		public void voltar()
 		{
+			var intent = new Intent(this, typeof(DetalhesMaterial));
+			StartActivity(intent);
 			Finish();
 		}
 	}

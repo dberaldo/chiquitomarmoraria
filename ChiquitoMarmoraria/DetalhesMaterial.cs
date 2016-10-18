@@ -10,6 +10,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ChiquitoMarmoraria
 {
@@ -50,16 +52,30 @@ namespace ChiquitoMarmoraria
 
 			botaoExcluirMaterial.Click += (sender, e) => 
 			{
-				DBAdapter db = new DBAdapter(this);
+				MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 
-				db.openDB();
-
-				if (db.excluirDados(m.Id))
+				try
 				{
-					Toast.MakeText(this, "Material excluído com sucesso", ToastLength.Short).Show();
+					if (con.State == ConnectionState.Closed)
+					{
+						con.Open();
+						Console.WriteLine("Conectado com sucesso!");
+						MySqlCommand cmd = new MySqlCommand("DELETE FROM material WHERE id = @id", con);
+						cmd.Parameters.AddWithValue("@id", m.Id);
+						cmd.ExecuteNonQuery();
+						Toast.MakeText(this, "Material excluído com sucesso.", ToastLength.Short).Show();
+						voltar();
+					}
 				}
-
-				db.closeDB();
+				catch (MySqlException ex)
+				{
+					Console.WriteLine("MySqlException: " + ex.Message);
+					Toast.MakeText(this, "Não foi possível excluir o material", ToastLength.Short).Show();
+				}
+				finally
+				{
+					con.Close();
+				}
 			};
 
 			botaoEditarMaterial.Click += (sender, e) =>
@@ -73,6 +89,13 @@ namespace ChiquitoMarmoraria
 
 				StartActivity(intent);
 			};
+		}
+
+		public void voltar()
+		{
+			var intent = new Intent(this, typeof(VisualizacaoMateriais));
+			StartActivity(intent);
+			Finish();
 		}
 	}
 }
