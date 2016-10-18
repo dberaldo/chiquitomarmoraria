@@ -17,7 +17,7 @@ namespace ChiquitoMarmoraria.Resources.Model
         public int Id { get; set; }
         public int IdServico { get; set; }
         public int IdUsuario { get; set; }
-        public bool Confirmado { get; set; }
+        public int Confirmado { get; set; }
         public DateTime Data { get; set; }
     }
 }

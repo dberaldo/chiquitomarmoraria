@@ -33,13 +33,11 @@ namespace ChiquitoMarmoraria.Resources
 
             string id = Intent.GetStringExtra("id") ?? "Data not available";
 
-            retrieve(id);
 
             listaAgendamentos = FindViewById<ListView>(Resource.Id.listaAgendamentos);
+            adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, agendamentosDisplay);
 
-
-
-
+            retrieve(id);
         }
 
 
@@ -59,9 +57,7 @@ namespace ChiquitoMarmoraria.Resources
                     cmd.Parameters.AddWithValue("@id_usuario", id);
 
                     Console.WriteLine("Passou comando2!");
-
-
-
+                    
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
 
@@ -75,30 +71,41 @@ namespace ChiquitoMarmoraria.Resources
                             int id2 = reader.GetOrdinal("id");
                             int idservico = reader.GetOrdinal("id_servico");
                             int idusuario = reader.GetOrdinal("id_usuario");
+                            int conf = reader.GetOrdinal("confirmado");
+
+                            Console.WriteLine("Passou execute2");
 
                             Agendamento a = new Agendamento();
+
+                            Console.WriteLine("Passou execute3");
                             a.Id = reader.GetInt32(id2);
-                            a.Data = reader.GetDateTime(2);
+                            Console.WriteLine("Passou execute4");
+                            a.Data = reader.GetDateTime("data");
+                            Console.WriteLine("Passou execute5");
                             a.IdServico = reader.GetInt32(idservico);
                             a.IdUsuario = reader.GetInt32(idusuario);
-                            a.Confirmado = reader.GetBoolean(5);
+                            a.Confirmado = reader.GetInt32(conf);
 
                             Console.WriteLine("Id= " + a.Id + " Data= " + a.Data + " idservico= " + a.IdServico);
                             Console.WriteLine("idusuario= " + a.IdUsuario + "confirmado= " + a.Confirmado);
 
                             agendamentos.Add(a);
+                            if (a.IdServico == 1)
+                                agendamentosDisplay.Add("Medição");
+                            else if (a.IdServico == 2)
+                                agendamentosDisplay.Add("Entrega");
+                            else if (a.IdServico == 3)
+                                agendamentosDisplay.Add("Instalação");
 
                         }
 
 
                     }
 
-                    /*if (materiaisDisplay.Size() > 0)
+                    if (agendamentosDisplay.Size() > 0)
                     {
-                        lista.Adapter = adapter;
-                    }*/
-
-
+                        listaAgendamentos.Adapter = adapter;
+                    }
 
                 }
 
