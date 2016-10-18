@@ -83,7 +83,7 @@ namespace ChiquitoMarmoraria.Resources
             {
                 var intent = new Intent(this, typeof(Orcamento));
                 StartActivity(intent);
-                Finish();
+                //Finish();
             };
 
             btnAgendamento.Click += (object sender, EventArgs e) =>

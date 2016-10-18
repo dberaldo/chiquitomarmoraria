@@ -22,7 +22,7 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
     <TextView
-        android:text="Selecione uma data:"
+        android:text="Digite uma data:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,13 +30,57 @@
         android:textColor="@android:color/black"
         android:gravity="center"
         android:paddingTop="10dp" />
-    <CalendarView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="300px"
-        android:id="@+id/calendario"
-        android:focusedMonthDateColor="@android:color/black"
-        android:unfocusedMonthDateColor="@android:color/darker_gray"
-        android:layout_gravity="center" />
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Dia: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:paddingTop="10dp"
+            android:id="@+id/textView2" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:textColor="#3F433E"
+            android:id="@+id/txt_dia" />
+        <TextView
+            android:text="Mês: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:paddingTop="10dp"
+            android:id="@+id/textView3" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:textColor="#3F433E"
+            android:paddingTop="10dp"
+            android:id="@+id/txt_mes" />
+        <TextView
+            android:text="Ano: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/black"
+            android:id="@+id/textView4" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:textColor="#3F433E"
+            android:id="@+id/txt_ano" />
+    </LinearLayout>
     <TextView
         android:text="Selecione o tipo de serviço:"
         android:textAppearance="?android:attr/textAppearanceLarge"

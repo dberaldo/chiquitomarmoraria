@@ -11,6 +11,8 @@ using Android.Views;
 using Android.Widget;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Java.Text;
+using Java.Util;
 
 namespace ChiquitoMarmoraria.Resources
 {
@@ -18,7 +20,9 @@ namespace ChiquitoMarmoraria.Resources
     public class AgendamentoUsuario : Activity
     {
 
-        CalendarView calendario;
+        EditText txtDia;
+        EditText txtMes;
+        EditText txtAno;
         Button btnAgendar;
         Button btnCancelar;
         RadioButton rbMedicao;
@@ -33,7 +37,9 @@ namespace ChiquitoMarmoraria.Resources
 
             string id = Intent.GetStringExtra("id") ?? "Data not available";
 
-            calendario = FindViewById<CalendarView>(Resource.Id.calendario);
+            txtDia = FindViewById<EditText>(Resource.Id.txt_dia);
+            txtMes = FindViewById<EditText>(Resource.Id.txt_mes);
+            txtAno = FindViewById<EditText>(Resource.Id.txt_ano);
             btnAgendar = FindViewById<Button>(Resource.Id.btn_agendar);
             btnCancelar = FindViewById<Button>(Resource.Id.btn_cancelar);
             rbEntrega = FindViewById<RadioButton>(Resource.Id.rb_entrega);
@@ -46,12 +52,6 @@ namespace ChiquitoMarmoraria.Resources
             int day=0;
             int month=0;
             int year=0;
-       
-            calendario.DateChange += (s, e) => {
-                day = e.DayOfMonth;
-                month = e.Month;
-                year = e.Year;
-            };
 
             btnCancelar.Click += (object sender, EventArgs e) =>
             {
@@ -73,6 +73,11 @@ namespace ChiquitoMarmoraria.Resources
 
             btnAgendar.Click += (object sender, EventArgs e) =>
             {
+               
+                day = Int32.Parse(txtDia.Text);
+                month = Int32.Parse(txtMes.Text);
+                year = Int32.Parse(txtAno.Text);
+
                 if (day == 0 && month == 0 && year == 0)
                 {
                     //Exibir mensagem de erro "Escolha uma data"
@@ -81,6 +86,7 @@ namespace ChiquitoMarmoraria.Resources
                 else
                 {
                     DateTime data = new DateTime(year, month, day);
+
                     int tipo_servico=0;
 
                     if (radioButton.Id == Resource.Id.rb_entrega)
@@ -114,7 +120,7 @@ namespace ChiquitoMarmoraria.Resources
                             cmd.Parameters.AddWithValue("@data", data);
                             cmd.Parameters.AddWithValue("@id_servico", tipo_servico);
                             cmd.Parameters.AddWithValue("@id_usuario", id);
-                            cmd.Parameters.AddWithValue("@confirmado", false);
+                            cmd.Parameters.AddWithValue("@confirmado", -1);
                             cmd.ExecuteNonQuery();
                             //quando o usuario envia o agendamento a coluna confirmado deve ter valor false
                             //somente terá valor true quando o adm confirmar a solicitacao de agendamento
