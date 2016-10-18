@@ -23,7 +23,7 @@ namespace ChiquitoMarmoraria
 		TextView txtDescricao;
 		TextView txtPreco;
 		Material m;
-		Button botaoEditarMaterial, botaoExcluirMaterial;
+		Button botaoEditarMaterial, botaoExcluirMaterial, botaoVoltar;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -37,6 +37,7 @@ namespace ChiquitoMarmoraria
 			txtPreco = FindViewById<TextView>(Resource.Id.txtPreco);
 			botaoEditarMaterial = FindViewById<Button>(Resource.Id.btnEditar);
 			botaoExcluirMaterial = FindViewById<Button>(Resource.Id.btnRemover);
+			botaoVoltar = FindViewById<Button>(Resource.Id.btnVoltar);
 
 			m = new Material();
 			m.Id = Intent.GetIntExtra("id", 0);
@@ -88,6 +89,12 @@ namespace ChiquitoMarmoraria
 				intent.PutExtra("preco", m.Preco);
 
 				StartActivity(intent);
+				Finish();
+			};
+
+			botaoVoltar.Click += (sender, e) => 
+			{
+				voltar();
 			};
 		}
 

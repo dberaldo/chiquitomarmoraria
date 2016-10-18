@@ -44,6 +44,15 @@ namespace ChiquitoMarmoraria
 				intent.PutExtra("descricao", materiais[e.Position].Descricao);
 				intent.PutExtra("preco", materiais[e.Position].Preco);
 
+				Console.WriteLine("e.Position = " + e.Position);
+
+				Console.WriteLine("Mateirais no evento: ");
+				for (int i = 0; i < materiais.Count; i++)
+				{
+					Console.WriteLine("id: " + materiais[i].Id);
+					Console.WriteLine("Nome: " + materiais[i].Nome);
+				}
+
 				StartActivity(intent);
                 Finish();
 			};
@@ -63,8 +72,22 @@ namespace ChiquitoMarmoraria
 
 		public void retrieve()
 		{
+			if(materiaisDisplay.Size() > 0)
+			{
+				materiaisDisplay.Clear();
+				materiais.Clear();
+			}
 
-            MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+			Console.WriteLine("Mateirais antes de dar retrieve: ");
+			for (int i = 0; i < materiais.Count; i++)
+			{
+				Console.WriteLine("i = " + i);
+				Console.WriteLine("id: " + materiais[i].Id);
+				Console.WriteLine("Nome: " + materiais[i].Nome);
+			}
+
+
+			MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 
             try
             {
@@ -75,15 +98,13 @@ namespace ChiquitoMarmoraria
 
                     MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco from material", con);
 
-                    Console.WriteLine("Passou comando!");
-
-                    Material mat = new Material();
+                    //Console.WriteLine("Passou comando!");
 
                     //materiais = InicializarArray<Material>(materiaisDisplay.Size());
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        Console.WriteLine("Passou execute reader!");
+                        //Console.WriteLine("Passou execute reader!");
                         int id = reader.GetOrdinal("id");
 
                         while (reader.Read())
@@ -91,19 +112,28 @@ namespace ChiquitoMarmoraria
                             materiaisDisplay.Add(reader["nome"].ToString());
                             Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
 
-                            mat.Id = reader.GetInt32(id);
-                            mat.Nome = reader["nome"].ToString();
-                            mat.Categoria = reader["categoria"].ToString();
-                            mat.Descricao = reader["descricao"].ToString();
-                            mat.Preco = reader.GetDouble(4);
+							materiais.Add(new Material() { Id = reader.GetInt32(id), Nome = reader["nome"].ToString(), Categoria = reader["categoria"].ToString(), Descricao = reader["descricao"].ToString(), Preco = reader.GetDouble(4)} );
 
-                            Console.WriteLine("Id= " + mat.Id + " Nome= " + mat.Nome + " Cat= " + mat.Categoria);
-                            Console.WriteLine("descr= " + mat.Descricao + "preco= " + mat.Preco);
+							Console.WriteLine("Loop com k: " + materiais.Count);
+							for (int k = 0; k < materiais.Count; k++)
+							{
+								Console.WriteLine("id: " + materiais[k].Id);
+								Console.WriteLine("Nome: " + materiais[k].Nome);
+							}
 
-                            materiais.Add(mat);
+							/*Console.WriteLine("Adicionando... count-1: " + (materiais.Count - 1));
+							Console.WriteLine("id: " + materiais[materiais.Count-1].Id);
+							Console.WriteLine("Nome: " + materiais[materiais.Count-1].Nome);*/
 
                         }
 
+						Console.WriteLine("Materiais depois de dar retrieve: Count: " + materiais.Count);
+						for (int i = 0; i < materiais.Count; i++)
+						{
+							Console.WriteLine("i = " + i);
+							Console.WriteLine("id: " + materiais[i].Id);
+							Console.WriteLine("Nome: " + materiais[i].Nome);
+						}
 
                     }
 
@@ -111,9 +141,6 @@ namespace ChiquitoMarmoraria
                     {
                         lista.Adapter = adapter;
                     }
-
-
-
                 }
 
             }

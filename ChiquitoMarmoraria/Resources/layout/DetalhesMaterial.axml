@@ -81,6 +81,19 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/btnEditar" />
-        
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <Button
+            android:text="Voltar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:id="@+id/btnVoltar" />
     </LinearLayout>
 </LinearLayout>

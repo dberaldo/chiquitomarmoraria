@@ -111,6 +111,11 @@ namespace ChiquitoMarmoraria
 		public void voltar()
 		{
 			var intent = new Intent(this, typeof(DetalhesMaterial));
+			intent.PutExtra("id", m.Id);
+			intent.PutExtra("nome", m.Nome);
+			intent.PutExtra("categoria", m.Categoria);
+			intent.PutExtra("descricao", m.Descricao);
+			intent.PutExtra("preco", m.Preco);
 			StartActivity(intent);
 			Finish();
 		}
