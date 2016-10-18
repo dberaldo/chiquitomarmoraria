@@ -44,15 +44,6 @@ namespace ChiquitoMarmoraria
 				intent.PutExtra("descricao", materiais[e.Position].Descricao);
 				intent.PutExtra("preco", materiais[e.Position].Preco);
 
-				Console.WriteLine("e.Position = " + e.Position);
-
-				Console.WriteLine("Mateirais no evento: ");
-				for (int i = 0; i < materiais.Count; i++)
-				{
-					Console.WriteLine("id: " + materiais[i].Id);
-					Console.WriteLine("Nome: " + materiais[i].Nome);
-				}
-
 				StartActivity(intent);
                 Finish();
 			};
@@ -98,13 +89,8 @@ namespace ChiquitoMarmoraria
 
                     MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco from material", con);
 
-                    //Console.WriteLine("Passou comando!");
-
-                    //materiais = InicializarArray<Material>(materiaisDisplay.Size());
-
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        //Console.WriteLine("Passou execute reader!");
                         int id = reader.GetOrdinal("id");
 
                         while (reader.Read())
@@ -120,11 +106,6 @@ namespace ChiquitoMarmoraria
 								Console.WriteLine("id: " + materiais[k].Id);
 								Console.WriteLine("Nome: " + materiais[k].Nome);
 							}
-
-							/*Console.WriteLine("Adicionando... count-1: " + (materiais.Count - 1));
-							Console.WriteLine("id: " + materiais[materiais.Count-1].Id);
-							Console.WriteLine("Nome: " + materiais[materiais.Count-1].Nome);*/
-
                         }
 
 						Console.WriteLine("Materiais depois de dar retrieve: Count: " + materiais.Count);
@@ -153,17 +134,6 @@ namespace ChiquitoMarmoraria
                 con.Close();
             }	
 		
-		}
-
-		T[] InicializarArray<T>(int length) where T : new()
-		{
-			T[] array = new T[length];
-			for (int i = 0; i < length; ++i)
-			{
-				array[i] = new T();
-			}
-
-			return array;
 		}
 	}
 

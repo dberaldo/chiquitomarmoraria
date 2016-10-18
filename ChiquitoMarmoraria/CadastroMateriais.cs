@@ -18,6 +18,8 @@ namespace ChiquitoMarmoraria
 		EditText txtPreco;
 		Button buttonCadastrar;
         Button buttonVoltar;
+		public static readonly int PickImageId = 1000;
+		ImageView imageMaterial;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -31,6 +33,7 @@ namespace ChiquitoMarmoraria
 			txtPreco = FindViewById<EditText>(Resource.Id.txtPreco);
 			buttonCadastrar = FindViewById<Button>(Resource.Id.btnCadastrar);
             buttonVoltar = FindViewById<Button>(Resource.Id.btnVoltar);
+			imageMaterial = FindViewById<ImageView>(Resource.Id.imageViewMaterial);
 
 			buttonCadastrar.Click += (object sender, EventArgs e) =>
 			{
@@ -82,7 +85,29 @@ namespace ChiquitoMarmoraria
                 StartActivity(intent);
                 Finish();
             };
+
+			imageMaterial.Click += (sender, e) => 
+			{
+				escolherImagem();
+			};
         }
+
+		public void escolherImagem()
+		{
+			Intent = new Intent();
+			Intent.SetType("image/*");
+			Intent.SetAction(Intent.ActionGetContent);
+			StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+		}
+
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
+			{
+				Android.Net.Uri uri = data.Data;
+				imageMaterial.SetImageURI(uri);
+			}
+		}
            
 	}
 }
