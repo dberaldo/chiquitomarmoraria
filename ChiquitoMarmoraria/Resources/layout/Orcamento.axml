@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spn_material"
-        android:background="@color/cardview_light_background" />
+        android:background="@android:color/darker_gray" />
     <TextView
         android:text="Largura (m):"
         android:textAppearance="?android:attr/textAppearanceMedium"

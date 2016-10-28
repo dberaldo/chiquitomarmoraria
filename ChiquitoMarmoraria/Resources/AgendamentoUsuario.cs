@@ -20,14 +20,22 @@ namespace ChiquitoMarmoraria.Resources
     public class AgendamentoUsuario : Activity
     {
 
-        EditText txtDia;
-        EditText txtMes;
-        EditText txtAno;
+        //EditText txtDia;
+        //EditText txtMes;
+        //EditText txtAno;
         Button btnAgendar;
         Button btnCancelar;
         RadioButton rbMedicao;
         RadioButton rbEntrega;
         RadioButton rbInstalacao;
+        TextView txtDisplayData;
+        ImageButton imgSeleciona;
+
+
+        int day = 0;
+        int month = 0;
+        int year = 0;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,23 +44,23 @@ namespace ChiquitoMarmoraria.Resources
             SetContentView(Resource.Layout.AgendamentoUsuario);
 
             string id = Intent.GetStringExtra("id") ?? "Data not available";
-
-            txtDia = FindViewById<EditText>(Resource.Id.txt_dia);
-            txtMes = FindViewById<EditText>(Resource.Id.txt_mes);
-            txtAno = FindViewById<EditText>(Resource.Id.txt_ano);
+            
             btnAgendar = FindViewById<Button>(Resource.Id.btn_agendar);
             btnCancelar = FindViewById<Button>(Resource.Id.btn_cancelar);
             rbEntrega = FindViewById<RadioButton>(Resource.Id.rb_entrega);
             rbMedicao = FindViewById<RadioButton>(Resource.Id.rb_medicao);
             rbInstalacao = FindViewById<RadioButton>(Resource.Id.rb_instalacao);
+            txtDisplayData = FindViewById<TextView>(Resource.Id.txt_displayData);
+            imgSeleciona = FindViewById<ImageButton>(Resource.Id.img_calendario);
+            imgSeleciona.Click += DateSelect_OnClick;
+
+            DateTime currently = DateTime.Now;
+
+            txtDisplayData.Text = String.Format("{0:d/M/yyyy}", currently);
 
             RadioGroup radioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroup1);
             RadioButton radioButton = FindViewById<RadioButton>(radioGroup.CheckedRadioButtonId);
-
-            int day=0;
-            int month=0;
-            int year=0;
-
+            
             btnCancelar.Click += (object sender, EventArgs e) =>
             {
                 new AlertDialog.Builder(this)
@@ -74,9 +82,9 @@ namespace ChiquitoMarmoraria.Resources
             btnAgendar.Click += (object sender, EventArgs e) =>
             {
                
-                day = Int32.Parse(txtDia.Text);
-                month = Int32.Parse(txtMes.Text);
-                year = Int32.Parse(txtAno.Text);
+                //day = Int32.Parse(txtDia.Text);
+                //month = Int32.Parse(txtMes.Text);
+                //year = Int32.Parse(txtAno.Text);
 
                 if (day == 0 && month == 0 && year == 0)
                 {
@@ -149,6 +157,20 @@ namespace ChiquitoMarmoraria.Resources
 
                 }
             };
+        }
+
+        void DateSelect_OnClick(object sender, EventArgs eventArgs)
+        {
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                txtDisplayData.Text = String.Format("{0:d/M/yyyy}", time);
+
+                day = time.Day;
+                month = time.Month;
+                year = time.Year;
+
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
     }
 }
