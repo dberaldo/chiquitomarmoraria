@@ -118,6 +118,7 @@ namespace ChiquitoMarmoraria
 				intent.PutExtra("categoria", m.Categoria);
 				intent.PutExtra("descricao", m.Descricao);
 				intent.PutExtra("preco", m.Preco);
+				intent.PutExtra("foto", m.Foto);
 
 				StartActivity(intent);
 				Finish();
