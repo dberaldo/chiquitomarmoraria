@@ -62,7 +62,7 @@ namespace ChiquitoMarmoraria.Resources
                     {
                         // User pressed OK
                     })
-                    .SetMessage("Seu orçamento é de R$ " + resultado)
+                    .SetMessage("Material: " + escolhido.Nome + "\nPreço por m²: R$ " + preco + "\nÁrea: " + (altura * largura) + " m²\nUnidades: " + qtd + "\n\nValor total: R$ " + resultado)
                     .SetTitle("Orçamento")
                     .Show();
             };
