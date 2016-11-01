@@ -157,10 +157,8 @@ namespace ChiquitoMarmoraria
 
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
-			System.Console.WriteLine("Pegando a imagem.");
 			if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
 			{
-				System.Console.WriteLine("Entrou no if do OnActivityResult.");
 				Android.Net.Uri uri = data.Data;
 				imageMaterial.SetImageURI(uri);
 
@@ -168,12 +166,11 @@ namespace ChiquitoMarmoraria
 				foto_bitmap = MediaStore.Images.Media.GetBitmap(this.ContentResolver, uri);
 
 				MemoryStream stream = new MemoryStream();
-				foto_bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, stream);
+				foto_bitmap.Compress(Bitmap.CompressFormat.Jpeg, 50, stream);
 				imagemArray = stream.ToArray();
 			}
 			else if(requestCode == RequestCamera)
 			{
-				System.Console.WriteLine("Entrou no else do OnActivityResult.");
 				base.OnActivityResult(requestCode, resultCode, data);
 
 				// Make it available in the gallery
@@ -195,11 +192,6 @@ namespace ChiquitoMarmoraria
 				{
 					imageMaterial.SetImageBitmap(App.bitmap);
 					App.bitmap = null;
-					System.Console.WriteLine("Bitmap não é null...");
-				}
-				else
-				{
-					System.Console.WriteLine("Bitmap é null...");
 				}
 
 				// Dispose of the Java side bitmap.
