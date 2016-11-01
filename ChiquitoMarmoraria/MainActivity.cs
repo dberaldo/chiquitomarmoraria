@@ -7,6 +7,7 @@ using Android.Widget;
 using Android.OS;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.IO;
 using ChiquitoMarmoraria.Resources;
 
 namespace ChiquitoMarmoraria
@@ -148,17 +149,14 @@ namespace ChiquitoMarmoraria
             
         }
 
-        public void entrarUser(string id)
-        {
-
-            //Redireciona para a tela de Menu do usuário
-            var intent = new Intent(this, typeof(MenuUsuario));
-            intent.PutExtra("id", id);
-            StartActivity(intent);
-            Finish();
-            
-        }
-
+		public void entrarUser(string id)
+		{
+			//Redireciona para a tela de Menu do usuário
+			var intent = new Intent(this, typeof(MenuUsuario));
+			intent.PutExtra("id", id);
+			StartActivity(intent);
+			Finish();
+		}
     }
 }
 
