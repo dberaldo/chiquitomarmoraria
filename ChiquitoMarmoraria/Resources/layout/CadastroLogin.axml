@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ll_infoBasic"
-        tools:visibility="visible">
+        android:visibility="visible">
         <TextView
             android:text="Informações Básicas (1/2)"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -117,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ll_infoContato"
-        tools:visibility="gone">
+        android:visibility="gone">
         <TextView
             android:text="Informações de Contato (2/2)"
             android:textAppearance="?android:attr/textAppearanceMedium"
