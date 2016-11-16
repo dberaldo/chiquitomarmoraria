@@ -15,8 +15,8 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -60,6 +60,10 @@
     <Reference Include="MySql.Data.CF">
       <HintPath>..\Components\MySQL-Plugin-1.0\lib\android\MySql.Data.CF.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -68,6 +72,9 @@
     <Reference Include="Xamarin.Android.Support.v7.CardView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +85,7 @@
     <Compile Include="Resources\DatePickerFragment.cs" />
     <Compile Include="Resources\DetalhesAgendamento.cs" />
     <Compile Include="Resources\ListViewerAdapter.cs" />
+    <Compile Include="Resources\LoginFacebook.xaml.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
     <Compile Include="Resources\MeusAgendamentos.cs" />
@@ -140,6 +148,9 @@
     <AndroidResource Include="Resources\layout\AgendamentoAdministrador.xml" />
     <AndroidResource Include="Resources\layout\Solicitacoes.xml" />
     <AndroidResource Include="Resources\layout\DetalhesAgendamentoAdmin.xml" />
+    <AndroidResource Include="Resources\layout\LoginFacebook.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -159,9 +170,17 @@
     <AndroidResource Include="Resources\drawable\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <XamarinComponentReference Include="json.net">
+      <Visible>False</Visible>
+      <Version>7.0.1</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="MySQL-Plugin">
       <Visible>False</Visible>
       <Version>1.0</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamarin.auth">
+      <Visible>False</Visible>
+      <Version>1.2.3.1</Version>
     </XamarinComponentReference>
   </ItemGroup>
   <ItemGroup>

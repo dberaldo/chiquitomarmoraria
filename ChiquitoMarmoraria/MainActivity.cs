@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.IO;
 using ChiquitoMarmoraria.Resources;
+using Android.Content.Res;
 
 namespace ChiquitoMarmoraria
 {
@@ -19,6 +20,7 @@ namespace ChiquitoMarmoraria
         TextView lblCadastre;
         TextView lblEsqueci;
         Button btnEntrar;
+        Button btnFacebook;
         EditText txtLogin;
         EditText txtSenha;
 
@@ -30,12 +32,21 @@ namespace ChiquitoMarmoraria
             lblCadastre = FindViewById<TextView>(Resource.Id.lbl_cadastre);
             lblEsqueci = FindViewById<TextView>(Resource.Id.lbl_esqueci);
             btnEntrar = FindViewById<Button>(Resource.Id.btn_entrar);
+            btnFacebook = FindViewById<Button>(Resource.Id.btn_facebook);
 
             txtLogin = FindViewById<EditText>(Resource.Id.txt_login);
             txtSenha = FindViewById<EditText>(Resource.Id.txt_senha);
 
+            //metodo botao facebook
+            btnFacebook.Click += (sender, e) =>
+            {
+                //Redireciona para a página Cadastro Login
+                var intent = new Intent(this, typeof(LoginFacebook));
+                StartActivity(intent);
+            };
+
             //metodo botao cadastre-se
-			lblCadastre.Click += (sender, e) =>
+            lblCadastre.Click += (sender, e) =>
 			{
 				//Redireciona para a página Cadastro Login
 				var intent = new Intent(this, typeof(CadastroLogin));
