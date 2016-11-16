@@ -62,11 +62,13 @@ namespace ChiquitoMarmoraria
             txtEndereco = FindViewById<EditText>(Resource.Id.txt_endereco);
             txtNumero = FindViewById<EditText>(Resource.Id.txt_numero);
             txtComplemento = FindViewById<EditText>(Resource.Id.txt_complemento);
+            txtTelefone = FindViewById<EditText>(Resource.Id.txt_telefone);
 			btnConfirmar = FindViewById<Button>(Resource.Id.btn_confirmar);
             btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
 
             btnProximo.Click += (object sender, EventArgs e) =>
             {
+                Console.WriteLine("clicou próximo");
                 p.Nome = txtNome.Text;
                 p.Email = txtEmail.Text;
                 p.Senha = txtSenha.Text;
@@ -90,9 +92,12 @@ namespace ChiquitoMarmoraria
                 p.Cidade = txtCidade.Text;
                 p.Endereco = txtEndereco.Text;
                 p.Numero = Convert.ToInt32(txtNumero.Text);
-                p.Complemento = txtComplemento.Text;
-                p.Telefone = Convert.ToInt32(txtTelefone.Text);
-
+                if (string.IsNullOrEmpty(txtComplemento.Text))
+                    p.Complemento = " ";
+                else
+                    p.Complemento = txtComplemento.Text;
+                p.Telefone = txtTelefone.Text;
+                Console.WriteLine("vai entrar cadastro");
                 cadastroPessoa(p);
             };
 
@@ -130,11 +135,10 @@ namespace ChiquitoMarmoraria
                     cmd.Parameters.AddWithValue("@complemento", p.Complemento);
                     cmd.Parameters.AddWithValue("@telefone", p.Telefone);
                     cmd.ExecuteNonQuery();
-                    txtNome.Text = "";
-                    txtEmail.Text = "";
-                    txtSenha.Text = "";
-                    txtSenhaRepete.Text = "";
                     Toast.MakeText(this, "Cadastrado realizado com sucesso.", ToastLength.Short).Show();
+                    //Redireciona para a página de Login
+                    var intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
                 }
             }
             catch (MySqlException ex)
