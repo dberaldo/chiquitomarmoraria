@@ -88,7 +88,7 @@ namespace ChiquitoMarmoraria.Resources
                     {
                         con.Open();
                         Console.WriteLine("Conectado com sucesso EDICAO Agendamento Usuario!");
-                        MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET data = @data WHERE id = @id", con);
+                        MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET data = @data, confirmado=-1 WHERE id = @id", con);
                         cmd.Parameters.AddWithValue("@data", data);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
