@@ -84,6 +84,7 @@
     <Compile Include="Resources\AgendamentoUsuario.cs" />
     <Compile Include="Resources\DatePickerFragment.cs" />
     <Compile Include="Resources\DetalhesAgendamento.cs" />
+    <Compile Include="Resources\EdicaoAgendamentoUsuario.cs" />
     <Compile Include="Resources\ListViewerAdapter.cs" />
     <Compile Include="Resources\LoginFacebook.xaml.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
@@ -149,6 +150,9 @@
     <AndroidResource Include="Resources\layout\Solicitacoes.xml" />
     <AndroidResource Include="Resources\layout\DetalhesAgendamentoAdmin.xml" />
     <AndroidResource Include="Resources\layout\LoginFacebook.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EdicaoAgendamentoUsuario.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

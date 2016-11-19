@@ -17,11 +17,13 @@ namespace ChiquitoMarmoraria.Resources
     public class DetalhesAgendamento : Activity
     {
 
-        TextView txtTipo;
-        TextView txtData;
-        TextView txtStatus;
+        TextView lblTipo;
+        TextView lblData;
+        TextView lblStatus;
         Agendamento a;
         Button btnVoltar;
+        Button btnAlterar;
+        Button btnCancelar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -30,16 +32,17 @@ namespace ChiquitoMarmoraria.Resources
 
             // Create your application here
 
-            txtTipo = FindViewById<TextView>(Resource.Id.txt_tipo);
-            txtStatus = FindViewById<TextView>(Resource.Id.txt_status);
-            txtData = FindViewById<TextView>(Resource.Id.txt_data);
+            lblTipo = FindViewById<TextView>(Resource.Id.txt_tipo);
+            lblStatus = FindViewById<TextView>(Resource.Id.txt_status);
+            lblData = FindViewById<TextView>(Resource.Id.txt_data);
             btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
+            btnAlterar = FindViewById<Button>(Resource.Id.btn_alterar);
+            btnCancelar = FindViewById<Button>(Resource.Id.btn_cancelar);
 
             int dia = Intent.GetIntExtra("day", 0);
             int mes = Intent.GetIntExtra("month", 0);
             int ano = Intent.GetIntExtra("year", 0);
-
-
+            
             a = new Agendamento();
             a.Id = Intent.GetIntExtra("id", 0);
             a.IdServico = Intent.GetIntExtra("idservico", 0);
@@ -47,26 +50,45 @@ namespace ChiquitoMarmoraria.Resources
             a.Confirmado = Intent.GetIntExtra("status", 0);
 
             if (a.IdServico == 1)
-                txtTipo.Text = "Medicao";
+                lblTipo.Text = "Medicao";
             else if (a.IdServico == 2)
-                txtTipo.Text = "Entrega";
+                lblTipo.Text = "Entrega";
             else if (a.IdServico == 3)
-                txtTipo.Text = "Instalacao";
+                lblTipo.Text = "Instalacao";
 
             if (a.Confirmado == -1)
-                txtStatus.Text = "Pendente";
+                lblStatus.Text = "Pendente";
             else if (a.Confirmado == 0)
-                txtStatus.Text = "Cancelado";
+                lblStatus.Text = "Cancelado";
             else if (a.Confirmado == 1)
-                txtStatus.Text = "Confirmado";
+                lblStatus.Text = "Confirmado";
 
-            txtData.Text = dia + "/" + mes + "/" + ano;
+            lblData.Text = dia + "/" + mes + "/" + ano;
 
             btnVoltar.Click += (sender, e) =>
             {
                 Finish();
             };
 
-            }
+            btnAlterar.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(EdicaoAgendamentoUsuario));
+                intent.PutExtra("id", a.Id);
+                intent.PutExtra("tipo", a.IdServico);
+                intent.PutExtra("dia", dia);
+                intent.PutExtra("mes", mes);
+                intent.PutExtra("ano", ano);
+                intent.PutExtra("idusuario", a.IdUsuario);
+
+                StartActivity(intent);
+                Finish();
+            };
+
+            btnCancelar.Click += (sender, e) =>
+            {
+
+            };
+
+        }
     }
 }

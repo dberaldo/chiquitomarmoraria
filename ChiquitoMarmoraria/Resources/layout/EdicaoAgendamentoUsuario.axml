@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@android:color/background_light">
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1" />
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_tipo"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
+    <TextView
+        android:text="Escolha uma nova data:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <EditText
+            android:inputType="date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#3F433E"
+            android:id="@+id/txt_displayData" />
+        <ImageButton
+            android:src="@drawable/calendario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_calendario" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:background="@android:color/background_light">
+        <Button
+            android:text="Cancelar"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/btn_cancelar" />
+        <Button
+            android:text="Salvar"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/btn_salvar" />
+    </LinearLayout>
+</LinearLayout>

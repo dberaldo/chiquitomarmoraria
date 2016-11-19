@@ -54,6 +54,16 @@
         android:textColor="#3F433E"
         android:gravity="center" />
     <Button
+        android:text="Alterar Agendamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_alterar" />
+    <Button
+        android:text="Cancelar Agendamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_cancelar" />
+    <Button
         android:text="Voltar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
