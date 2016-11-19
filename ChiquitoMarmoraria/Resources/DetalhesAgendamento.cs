@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using ChiquitoMarmoraria.Resources.Model;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ChiquitoMarmoraria.Resources
 {
@@ -86,7 +88,52 @@ namespace ChiquitoMarmoraria.Resources
 
             btnCancelar.Click += (sender, e) =>
             {
+                new AlertDialog.Builder(this)
+                    .SetPositiveButton("Sim", (sender2, args) =>
+                    {
+                    // User pressed yes
+                    //Chamar função de deletar agendamento
+                    //delete from agendamento where id=@id
 
+                    MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+
+                        try
+                        {
+                            if (con.State == ConnectionState.Closed)
+                            {
+                                con.Open();
+                                Console.WriteLine("Conectado com sucesso CANCELAMENTO Agendamento Usuario!");
+                                MySqlCommand cmd = new MySqlCommand("DELETE agendamento WHERE id = @id", con);
+                                cmd.Parameters.AddWithValue("@id", a.Id);
+                                cmd.ExecuteNonQuery();
+
+                                Toast.MakeText(this, "Agendamento cancelado com sucesso!", ToastLength.Short).Show();
+
+                                var intent = new Intent(this, typeof(MeusAgendamentos));
+                                intent.PutExtra("id", a.IdUsuario);
+                                StartActivity(intent);
+                                Finish();
+                            }
+                        }
+                        catch (MySqlException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                            Toast.MakeText(this, "Erro ao atualizar agendamento!", ToastLength.Short).Show();
+
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+
+                    })
+                    .SetNegativeButton("Não", (sender2, args) =>
+                    {
+                        // User pressed no 
+                    })
+                    .SetMessage("Tem certeza que deseja cancelar esse agendamento?")
+                    .SetTitle("Alerta")
+                    .Show();
             };
 
         }
