@@ -44,12 +44,17 @@ namespace ChiquitoMarmoraria.Resources
             int dia = Intent.GetIntExtra("day", 0);
             int mes = Intent.GetIntExtra("month", 0);
             int ano = Intent.GetIntExtra("year", 0);
-            
+
+            string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
+            int idInt = Int32.Parse(idString);
+
             a = new Agendamento();
             a.Id = Intent.GetIntExtra("id", 0);
             a.IdServico = Intent.GetIntExtra("idservico", 0);
-            a.IdUsuario = Intent.GetIntExtra("idusuario", 0);
+            a.IdUsuario = idInt;
             a.Confirmado = Intent.GetIntExtra("status", 0);
+
+            Console.WriteLine("DetalhesAgendamento ID = "+a.IdUsuario);
 
             if (a.IdServico == 1)
                 lblTipo.Text = "Medicao";
@@ -69,6 +74,10 @@ namespace ChiquitoMarmoraria.Resources
 
             btnVoltar.Click += (sender, e) =>
             {
+                var intent = new Intent(this, typeof(MeusAgendamentos));
+                intent.PutExtra("id", idString);
+
+                StartActivity(intent);
                 Finish();
             };
 
@@ -80,7 +89,8 @@ namespace ChiquitoMarmoraria.Resources
                 intent.PutExtra("dia", dia);
                 intent.PutExtra("mes", mes);
                 intent.PutExtra("ano", ano);
-                intent.PutExtra("idusuario", a.IdUsuario);
+                intent.PutExtra("idusuario", idString);
+                intent.PutExtra("status", a.Confirmado);
 
                 StartActivity(intent);
                 Finish();

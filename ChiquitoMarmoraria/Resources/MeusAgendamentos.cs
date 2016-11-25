@@ -33,6 +33,8 @@ namespace ChiquitoMarmoraria.Resources
             SetContentView(Resource.Layout.MeusAgendamentos);
 
             string id = Intent.GetStringExtra("id") ?? "Data not available";
+            
+            Console.WriteLine("IDDDD = " + id);
 
             btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
             listaAgendamentos = FindViewById<ListView>(Resource.Id.listaAgendamentos);
@@ -50,13 +52,16 @@ namespace ChiquitoMarmoraria.Resources
                 var intent = new Intent(this, typeof(DetalhesAgendamento));
                 intent.PutExtra("id", agendamentos[e.Position].Id);
                 intent.PutExtra("idservico", agendamentos[e.Position].IdServico);
-                intent.PutExtra("idusuario", agendamentos[e.Position].IdUsuario);
+                intent.PutExtra("idusuario", agendamentos[e.Position].IdUsuario.ToString());
                 intent.PutExtra("day", agendamentos[e.Position].Data.Day);
                 intent.PutExtra("month", agendamentos[e.Position].Data.Month);
                 intent.PutExtra("year", agendamentos[e.Position].Data.Year);
                 intent.PutExtra("status", agendamentos[e.Position].Confirmado);
 
+                Console.WriteLine("MeusAgendamento ID = "+agendamentos[e.Position].IdUsuario.ToString());
+
                 StartActivity(intent);
+                Finish();
             };
         }
 

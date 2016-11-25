@@ -164,8 +164,9 @@ namespace ChiquitoMarmoraria
 		{
 			//Redireciona para a tela de Menu do usuário
 			var intent = new Intent(this, typeof(MenuUsuario));
-			intent.PutExtra("id", id);
-			StartActivity(intent);
+            intent.PutExtra("id", id);
+            Console.WriteLine("MainActivity ID = " + id);
+            StartActivity(intent);
 			Finish();
 		}
     }

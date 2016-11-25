@@ -39,7 +39,16 @@ namespace ChiquitoMarmoraria.Resources
             int dia = Intent.GetIntExtra("dia", 0);
             int mes = Intent.GetIntExtra("mes", 0);
             int ano = Intent.GetIntExtra("ano", 0);
-            string idUsuario = Intent.GetStringExtra("id") ?? "Data not available";
+            int status = Intent.GetIntExtra("status", 0);
+
+
+            string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
+            int idUsuario = Int32.Parse(idString);
+            
+
+            day = dia;
+            month = mes;
+            year = ano;
 
             txtData = FindViewById<EditText>(Resource.Id.txt_displayData);
             lblTipo = FindViewById<TextView>(Resource.Id.txt_tipo);
@@ -49,11 +58,11 @@ namespace ChiquitoMarmoraria.Resources
             btnCancelar = FindViewById<Button>(Resource.Id.btn_cancelar);
 
             if (tipo == 1)
-                lblTipo.Text = "Medicao";
+                lblTipo.Text = "Medição";
             else if (tipo == 2)
                 lblTipo.Text = "Entrega";
             else if (tipo == 3)
-                lblTipo.Text = "Instalacao";
+                lblTipo.Text = "Instalação";
 
             txtData.Text = dia + "/" + mes + "/" + ano;
 
@@ -64,6 +73,16 @@ namespace ChiquitoMarmoraria.Resources
                     .SetPositiveButton("Sim", (sender2, args) =>
                     {
                         // User pressed yes
+                        var intent = new Intent(this, typeof(DetalhesAgendamento));
+                        intent.PutExtra("id", id);
+                        intent.PutExtra("idservico", tipo);
+                        intent.PutExtra("idusuario", idString);
+                        intent.PutExtra("day", dia);
+                        intent.PutExtra("month", mes);
+                        intent.PutExtra("year", ano);
+                        intent.PutExtra("status", status);
+
+                        StartActivity(intent);
                         Finish();
                     })
                     .SetNegativeButton("Não", (sender2, args) =>
@@ -95,8 +114,16 @@ namespace ChiquitoMarmoraria.Resources
                         
                         Toast.MakeText(this, "Agendamento atualizado com sucesso!", ToastLength.Short).Show();
 
-                        var intent = new Intent(this, typeof(MeusAgendamentos));
-                        intent.PutExtra("id", idUsuario);
+                        status = -1;
+
+                        var intent = new Intent(this, typeof(DetalhesAgendamento));
+                        intent.PutExtra("id", id);
+                        intent.PutExtra("idservico", tipo);
+                        intent.PutExtra("idusuario", idString);
+                        intent.PutExtra("day", day);
+                        intent.PutExtra("month", month);
+                        intent.PutExtra("year", year);
+                        intent.PutExtra("status", status);
                         StartActivity(intent);
                         Finish();
                     }

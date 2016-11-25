@@ -98,6 +98,7 @@ namespace ChiquitoMarmoraria.Resources
             {
                 var intent = new Intent(this, typeof(MeusAgendamentos));
                 intent.PutExtra("id", id);
+                Console.WriteLine("MenuUduario ID = "+ id);
                 StartActivity(intent);
             };
 
