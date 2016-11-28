@@ -137,7 +137,7 @@ namespace ChiquitoMarmoraria.Resources
                         }
 
                     })
-                    .SetNegativeButton("Não", (sender2, args) =>
+                    .SetNegativeButton("Não", (sender2, args) => 
                     {
                         // User pressed no 
                     })
