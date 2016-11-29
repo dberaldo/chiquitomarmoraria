@@ -89,9 +89,11 @@
     <Compile Include="Resources\LoginFacebook.xaml.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
+    <Compile Include="Resources\MeuOrcamento.cs" />
     <Compile Include="Resources\MeusAgendamentos.cs" />
     <Compile Include="Resources\Model\Agendamento.cs" />
     <Compile Include="Resources\Model\MySpinnerAdapter.cs" />
+    <Compile Include="Resources\Model\OrcamentoM.cs" />
     <Compile Include="Resources\Model\Pessoa.cs" />
     <Compile Include="Resources\Orcamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Database\DBHelper.cs" />
     <Compile Include="Database\DBAdapter.cs" />
     <Compile Include="CadastroMateriais.cs" />
+    <Compile Include="Resources\OrcamentoAdapter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="VisualizacaoMateriais.cs" />
     <Compile Include="Resources\Model\Material.cs" />
@@ -155,6 +158,12 @@
     <AndroidResource Include="Resources\layout\EdicaoAgendamentoUsuario.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\MeuOrcamento.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ItemOrcamento.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -192,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

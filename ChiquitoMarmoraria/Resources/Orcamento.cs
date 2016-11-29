@@ -33,11 +33,8 @@ namespace ChiquitoMarmoraria.Resources
             // Create your application here
 
             retrieve();
-
-            System.Console.WriteLine("PAAAAAAASSOU RETRIEVE!!!!!!!!!");
-
+        
             spinner = FindViewById<Spinner>(Resource.Id.spn_material);
-            System.Console.WriteLine("PAAAAAAASSOU finview!");
             
             spinner.Adapter = new MySpinnerAdapter(this, Resource.Layout.SppinerItem, Resource.Id.spinnerText, listaMaterial);
             //spinner.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, listaMaterial);

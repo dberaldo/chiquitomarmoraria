@@ -81,7 +81,8 @@ namespace ChiquitoMarmoraria.Resources
 
             btnOrcamento.Click += (object sender, EventArgs e) =>
             {
-                var intent = new Intent(this, typeof(Orcamento));
+                var intent = new Intent(this, typeof(MeuOrcamento));
+                intent.PutExtra("id", id);
                 StartActivity(intent);
                 //Finish();
             };
