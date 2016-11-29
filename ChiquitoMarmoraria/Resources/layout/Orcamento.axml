@@ -87,9 +87,15 @@
         android:id="@+id/txt_qtd"
         android:textColor="#3F433E" />
     <Button
-        android:text="Calcular"
+        android:text="Adicionar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_calcular"
+        android:paddingTop="10dp" />
+    <Button
+        android:text="Voltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_voltar"
         android:paddingTop="10dp" />
 </LinearLayout>
