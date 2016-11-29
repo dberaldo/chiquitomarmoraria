@@ -109,7 +109,7 @@ namespace ChiquitoMarmoraria.Resources
                     cmd.Parameters.AddWithValue("@id_usuario", id);
 
                     Console.WriteLine("Passou comando2!");
-
+                    total = 0;
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         int aux = 0;
@@ -139,7 +139,17 @@ namespace ChiquitoMarmoraria.Resources
                             
                             orcamentos.Add(o);
 
+                            Console.WriteLine("Orcamento: id="+o.Id.ToString()+" material="+o.Material+" idUsuario="+o.IdUsuario.ToString()+
+                                " quantidade="+o.Quantidade.ToString()+" preco="+o.Preco.ToString()+" visivel="+o.Visivel.ToString()+" largura="+o.Largura.ToString()+
+                                " altura="+o.Altura.ToString());
+
+                            Console.WriteLine("QTD=" + quantidade);
+
                             total = total + (quantidade * preco * altura * largura);
+
+                            Console.WriteLine("TOTAL=" + total);
+
+                            orcamentosDisplay.Add(o.Material);
                             
                         }
 
