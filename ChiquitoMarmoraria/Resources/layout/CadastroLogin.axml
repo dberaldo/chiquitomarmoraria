@@ -10,322 +10,326 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView1" />
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ll_infoBasic"
-        android:visibility="visible">
-        <TextView
-            android:text="Informações Básicas (1/2)"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_infobasicas"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="#3F433E"
-            android:gravity="center" />
-        <TextView
-            android:text="Nome:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_nome"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:inputType="textPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_nome"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#3F433E" />
-        <TextView
-            android:text="E-mail:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_email"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_email"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="#3F433E" />
-        <TextView
-            android:text="Digite uma senha:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_senha"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:inputType="textPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_senha"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#3F433E" />
-        <TextView
-            android:text="Digite a senha novamente:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_senha_repete"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:inputType="textPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_senha_repete"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#3F433E" />
-        <Button
-            android:text="Próximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_proximo"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:layout_gravity="right" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ll_infoContato"
-        android:visibility="gone">
-        <TextView
-            android:text="Informações de Contato (2/2)"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_infocontato"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:textColor="#3F433E" />
-        <TextView
-            android:text="CEP:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_cep"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_cep"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#3F433E" />
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ll_agrupamento3">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dip"
+            android:id="@+id/ll_infoBasic"
+            android:visibility="visible">
+            <TextView
+                android:text="Informações Básicas (1/2)"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.30"
-                android:id="@+id/ll_agrupamento_estado">
-                <TextView
-                    android:text="Estado:"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lbl_estado"
-                    android:textColor="@android:color/black"
-                    android:gravity="left"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_estado"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textColor="#3F433E" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dip"
+                android:id="@+id/lbl_infobasicas"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="#3F433E"
+                android:gravity="center" />
+            <TextView
+                android:text="Nome:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:id="@+id/ll_agrupamento4">
-                <TextView
-                    android:text="Cidade:"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lbl_estado"
-                    android:textColor="@android:color/black"
-                    android:gravity="left"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_cidade"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textColor="#3F433E" />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ll_agrupamentoEnderecoNum">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.70"
-                android:id="@+id/ll_agrupamentoEndereco">
-                <TextView
-                    android:text="Endereço:"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lbl_endereco"
-                    android:textColor="@android:color/black"
-                    android:gravity="left"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_endereco"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textColor="#3F433E" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.30"
-                android:id="@+id/ll_agrupamentoNum">
-                <TextView
-                    android:text="Número:"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lbl_numero"
-                    android:textColor="@android:color/black"
-                    android:gravity="left"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp" />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_numero"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textColor="#3F433E" />
-            </LinearLayout>
-        </LinearLayout>
-        <TextView
-            android:text="Complemento:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_complemento"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_complemento"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#3F433E" />
-        <TextView
-            android:text="Telefone:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lbl_telefone"
-            android:textColor="@android:color/black"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txt_telefone"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="#3F433E" />
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ll_agrupamentoBotoes">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:id="@+id/lbl_nome"
+                android:textColor="@android:color/black"
                 android:gravity="left"
-                android:id="@+id/ll_agrupamentoEnderecoNum">
-                <Button
-                    android:text="Voltar"
-                    android:layout_width="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_nome"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#3F433E" />
+            <TextView
+                android:text="E-mail:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_email"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_email"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#3F433E" />
+            <TextView
+                android:text="Digite uma senha:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_senha"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_senha"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#3F433E" />
+            <TextView
+                android:text="Digite a senha novamente:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_senha_repete"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_senha_repete"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#3F433E" />
+            <Button
+                android:text="Próximo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_proximo"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:layout_gravity="right" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_infoContato"
+            android:visibility="gone">
+            <TextView
+                android:text="Informações de Contato (2/2)"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_infocontato"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:textColor="#3F433E" />
+            <TextView
+                android:text="CEP:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_cep"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_cep"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#3F433E" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_agrupamento3">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/btn_voltar"
-                    android:gravity="center"
-                    android:layout_gravity="left" />
+                    android:layout_weight="0.30"
+                    android:id="@+id/ll_agrupamento_estado">
+                    <TextView
+                        android:text="Estado:"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lbl_estado"
+                        android:textColor="@android:color/black"
+                        android:gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_estado"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#3F433E" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.75"
+                    android:id="@+id/ll_agrupamento4">
+                    <TextView
+                        android:text="Cidade:"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lbl_estado"
+                        android:textColor="@android:color/black"
+                        android:gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_cidade"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#3F433E" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="0dip"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="right"
                 android:id="@+id/ll_agrupamentoEnderecoNum">
-                <Button
-                    android:text="Confirmar"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btn_confirmar"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center"
-                    android:layout_gravity="right" />
+                    android:layout_weight="0.70"
+                    android:id="@+id/ll_agrupamentoEndereco">
+                    <TextView
+                        android:text="Endereço:"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lbl_endereco"
+                        android:textColor="@android:color/black"
+                        android:gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_endereco"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#3F433E" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.30"
+                    android:id="@+id/ll_agrupamentoNum">
+                    <TextView
+                        android:text="Número:"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lbl_numero"
+                        android:textColor="@android:color/black"
+                        android:gravity="left"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_numero"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#3F433E" />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:text="Complemento:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_complemento"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_complemento"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#3F433E" />
+            <TextView
+                android:text="Telefone:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lbl_telefone"
+                android:textColor="@android:color/black"
+                android:gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_telefone"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#3F433E" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_agrupamentoBotoes">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="left"
+                    android:id="@+id/ll_agrupamentoEnderecoNum">
+                    <Button
+                        android:text="Voltar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/btn_voltar"
+                        android:gravity="center"
+                        android:layout_gravity="left" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="right"
+                    android:id="@+id/ll_agrupamentoEnderecoNum">
+                    <Button
+                        android:text="Confirmar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btn_confirmar"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="right" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
