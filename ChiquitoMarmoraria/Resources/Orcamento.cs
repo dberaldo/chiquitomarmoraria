@@ -56,6 +56,7 @@ namespace ChiquitoMarmoraria.Resources
                 var intent = new Intent(this, typeof(MeuOrcamento));
                 intent.PutExtra("id", id);
                 StartActivity(intent);
+                Finish();
             };
 
             btnCalcular.Click += (object sender, EventArgs e) =>
@@ -107,14 +108,16 @@ namespace ChiquitoMarmoraria.Resources
 
 
                 //exibir popup com valor do orçamento
-               /* new AlertDialog.Builder(this)
-                    .SetNeutralButton("OK", (sender2, args) =>
-                    {
-                        // User pressed OK
-                    })
-                    .SetMessage("Material: " + escolhido.Nome + "\nPreço por m²: R$ " + preco + "\nÁrea: " + (altura * largura) + " m²\nUnidades: " + qtd + "\n\nValor total: R$ " + resultado)
-                    .SetTitle("Orçamento")
-                    .Show();*/
+                /* new AlertDialog.Builder(this)
+                     .SetNeutralButton("OK", (sender2, args) =>
+                     {
+                         // User pressed OK
+                     })
+                     .SetMessage("Material: " + escolhido.Nome + "\nPreço por m²: R$ " + preco + "\nÁrea: " + (altura * largura) + " m²\nUnidades: " + qtd + "\n\nValor total: R$ " + resultado)
+                     .SetTitle("Orçamento")
+                     .Show();*/
+
+                Finish();
             };
 
              

@@ -81,6 +81,39 @@ namespace ChiquitoMarmoraria.Resources
             btnLimpar.Click += (object sender, EventArgs e) =>
             {
                 // setar todos as entradas com visivel=false
+                MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                        Console.WriteLine("Conectado com sucesso!");
+
+                        //conexao
+
+                        for (var i = 0; i < orcamentos.Count; i++)
+                        {
+                            MySqlCommand cmd = new MySqlCommand("UPDATE orcamento SET visivel = false WHERE id = @id", con);
+                            cmd.Parameters.AddWithValue("@id", orcamentos[i].Id);
+                            cmd.ExecuteNonQuery();
+                            
+                        }
+
+                        orcamentos.Clear();
+                        orcamentosDisplay.Clear();
+                        listaOrcamentos.Adapter = null;
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    con.Close();
+                }
+
 
                 total = 0;
 
@@ -145,7 +178,7 @@ namespace ChiquitoMarmoraria.Resources
 
                             Console.WriteLine("QTD=" + quantidade);
 
-                            total = total + (quantidade * preco * altura * largura);
+                            total = total + (o.Quantidade * o.Preco * o.Altura * o.Largura);
 
                             Console.WriteLine("TOTAL=" + total);
 
