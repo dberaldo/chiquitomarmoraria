@@ -31,6 +31,7 @@ namespace ChiquitoMarmoraria
         EditText txtNumero;
         EditText txtComplemento;
         EditText txtTelefone;
+        EditText txtBairro;
         Button btnConfirmar;
         Button btnVoltar;
 
@@ -54,7 +55,7 @@ namespace ChiquitoMarmoraria
 			txtSenha = FindViewById<EditText>(Resource.Id.txt_senha);
 			txtSenhaRepete = FindViewById<EditText>(Resource.Id.txt_senha_repete);
             btnProximo = FindViewById<Button>(Resource.Id.btn_proximo);
-
+            txtBairro = FindViewById<EditText>(Resource.Id.txt_bairro);
             //Cadastro Endereço
             txtCep = FindViewById<EditText>(Resource.Id.txt_cep);
             txtEstado = FindViewById<EditText>(Resource.Id.txt_estado);
@@ -92,6 +93,7 @@ namespace ChiquitoMarmoraria
                 p.Cidade = txtCidade.Text;
                 p.Endereco = txtEndereco.Text;
                 p.Numero = Convert.ToInt32(txtNumero.Text);
+                p.Bairro = txtBairro.Text;
                 if (string.IsNullOrEmpty(txtComplemento.Text))
                     p.Complemento = " ";
                 else
@@ -123,7 +125,7 @@ namespace ChiquitoMarmoraria
                 {
                     con.Open();
                     Console.WriteLine("Conectado com sucesso!");
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO pessoa (nome, email, senha, cep, estado, cidade, endereco, numero, complemento, telefone) VALUES (@nome, @email, @senha, @cep, @estado, @cidade, @endereco, @numero, @complemento, @telefone)", con);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO pessoa (nome, email, senha, cep, estado, cidade, endereco, numero, complemento, telefone, bairro) VALUES (@nome, @email, @senha, @cep, @estado, @cidade, @endereco, @numero, @complemento, @telefone, @bairro)", con);
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
@@ -134,6 +136,7 @@ namespace ChiquitoMarmoraria
                     cmd.Parameters.AddWithValue("@numero", p.Numero);
                     cmd.Parameters.AddWithValue("@complemento", p.Complemento);
                     cmd.Parameters.AddWithValue("@telefone", p.Telefone);
+                    cmd.Parameters.AddWithValue("@bairro", p.Bairro);
                     cmd.ExecuteNonQuery();
                     Toast.MakeText(this, "Cadastrado realizado com sucesso.", ToastLength.Short).Show();
                     //Redireciona para a página de Login
