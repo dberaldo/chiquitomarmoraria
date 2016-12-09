@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EsqueciSenha.cs" />
     <Compile Include="CadastroLogin.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\AgendamentoAdapter.cs" />
@@ -158,6 +159,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ItemOrcamento.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\EsqueciSenha.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

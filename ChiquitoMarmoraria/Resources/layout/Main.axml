@@ -59,7 +59,8 @@
         android:id="@+id/lbl_esqueci"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:clickable="true" />
     <TextView
         android:text="Cadastre-se"
         android:textAppearance="?android:attr/textAppearanceMedium"

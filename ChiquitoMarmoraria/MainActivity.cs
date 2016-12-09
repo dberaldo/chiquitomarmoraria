@@ -45,6 +45,14 @@ namespace ChiquitoMarmoraria
                 StartActivity(intent);
 			};
 
+            //metodo esqueceu senha
+            lblEsqueci.Click += (sender, e) =>
+            {
+                //Redireciona para a página Esqueci Senha
+                var intent = new Intent(this, typeof(EsqueciSenha));
+                StartActivity(intent);
+            };
+
             //metodo botao entrar
             btnEntrar.Click += (sender, e) =>
             {
