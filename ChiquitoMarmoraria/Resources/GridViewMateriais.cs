@@ -53,7 +53,7 @@ namespace ChiquitoMarmoraria
 					con.Open();
 					Console.WriteLine("Conectado com sucesso!");
 
-					MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco, foto from material", con);
+					MySqlCommand cmd = new MySqlCommand("select id, nome, categoria, descricao, preco, foto from material order by nome", con);
 
 					using (MySqlDataReader reader = cmd.ExecuteReader())
 					{

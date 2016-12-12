@@ -125,10 +125,11 @@ namespace ChiquitoMarmoraria
 				StartActivity(intent);
 			};
 
-            btnEstatisticas = FindViewById<Button>(Resource.Id.btnEstatísticas);
+            btnEstatisticas = FindViewById<Button>(Resource.Id.btnEstatisticas);
 
             btnEstatisticas.Click += (sender, e) =>
             {
+                Console.WriteLine("entrou botao estatisticas");
                 var intent = new Intent(this, typeof(SubMenuEstatisticas));
                 StartActivity(intent);
             };

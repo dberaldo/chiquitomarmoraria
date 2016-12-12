@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace ChiquitoMarmoraria
 {
-	[Activity(Label = "SubMenuEstatisticas")]
+	[Activity(Label = "Estatísticas")]
 	public class SubMenuEstatisticas : Activity
 	{
 		Button materiais_pedidos;

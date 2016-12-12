@@ -180,7 +180,7 @@ namespace ChiquitoMarmoraria
 			public const int btnEditar = 2131230794;
 			
 			// aapt resource value: 0x7f08006a
-			public const int btnEstatísticas = 2131230826;
+			public const int btnEstatisticas = 2131230826;
 			
 			// aapt resource value: 0x7f08006f
 			public const int btnMateriaisDisponiveis = 2131230831;
