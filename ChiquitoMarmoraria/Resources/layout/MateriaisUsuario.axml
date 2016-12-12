@@ -18,12 +18,14 @@
             android:paddingBottom="30dp"
             android:paddingTop="0dp" />
         <TextView
-            android:text="Materiais disponíveis"
+            android:text="Materiais Disponíveis:"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/label"
-            android:textColor="#ff000000" />
+            android:textColor="#ff000000"
+            android:gravity="center"
+            android:paddingBottom="15px" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
