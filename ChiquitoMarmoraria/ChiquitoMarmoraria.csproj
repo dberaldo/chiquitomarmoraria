@@ -85,6 +85,11 @@
     <Compile Include="Resources\DatePickerFragment.cs" />
     <Compile Include="Resources\DetalhesAgendamento.cs" />
     <Compile Include="Resources\EdicaoAgendamentoUsuario.cs" />
+    <Compile Include="Resources\EstatisticasMateriais.cs" />
+    <Compile Include="Resources\EstatisticasUsuarios.cs" />
+    <Compile Include="Resources\GridViewMateriais.cs" />
+    <Compile Include="Resources\ImageAdapter.cs" />
+    <Compile Include="Resources\ListViewAdapter.cs" />
     <Compile Include="Resources\ListViewerAdapter.cs" />
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
@@ -102,6 +107,7 @@
     <Compile Include="CadastroMateriais.cs" />
     <Compile Include="Resources\OrcamentoAdapter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Resources\SubMenuEstatisticas.cs" />
     <Compile Include="VisualizacaoMateriais.cs" />
     <Compile Include="Resources\Model\Material.cs" />
     <Compile Include="DetalhesMaterial.cs" />
@@ -163,6 +169,10 @@
     <AndroidResource Include="Resources\layout\EsqueciSenha.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\EstatisticasMateriais.axml" />
+    <AndroidResource Include="Resources\layout\EstatisticasUsuarios.axml" />
+    <AndroidResource Include="Resources\layout\ListItemEstatisticas.axml" />
+    <AndroidResource Include="Resources\layout\MateriaisUsuario.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffffff"
+        android:minWidth="25px"
+        android:minHeight="50px">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView1"
+            android:paddingBottom="30dp"
+            android:paddingTop="0dp" />
+        <TextView
+            android:text="Materiais disponíveis"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/label"
+            android:textColor="#ff000000" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffffff">
+            <GridView
+                android:id="@+id/myGridView1"
+                android:minWidth="25px"
+                android:minHeight="200px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="180dp"
+                android:numColumns="auto_fit"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                android:verticalSpacing="10dp" />
+        </LinearLayout>
+        <Button
+            android:text="Voltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnVoltar3" />
+    </LinearLayout>
+</ScrollView>
