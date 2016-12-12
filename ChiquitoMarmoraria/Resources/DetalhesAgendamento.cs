@@ -113,7 +113,7 @@ namespace ChiquitoMarmoraria.Resources
                             {
                                 con.Open();
                                 Console.WriteLine("Conectado com sucesso CANCELAMENTO Agendamento Usuario!");
-                                MySqlCommand cmd = new MySqlCommand("DELETE agendamento WHERE id = @id", con);
+                                MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0, needNotifyAdmin=1 WHERE id=@id", con);
                                 cmd.Parameters.AddWithValue("@id", a.Id);
                                 cmd.ExecuteNonQuery();
 

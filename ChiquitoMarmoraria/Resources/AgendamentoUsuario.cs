@@ -124,7 +124,7 @@ namespace ChiquitoMarmoraria.Resources
                         {
                             con.Open();
                             Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
-                            MySqlCommand cmd = new MySqlCommand("INSERT INTO agendamento (data, id_servico, id_usuario, confirmado) VALUES (@data, @id_servico, @id_usuario, @confirmado)", con);
+                            MySqlCommand cmd = new MySqlCommand("INSERT INTO agendamento (data, id_servico, id_usuario, confirmado, needNotifyAdmin) VALUES (@data, @id_servico, @id_usuario, @confirmado, 1)", con);
                             cmd.Parameters.AddWithValue("@data", data);
                             cmd.Parameters.AddWithValue("@id_servico", tipo_servico);
                             cmd.Parameters.AddWithValue("@id_usuario", id);

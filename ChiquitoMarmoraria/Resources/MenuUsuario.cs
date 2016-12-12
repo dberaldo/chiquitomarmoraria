@@ -79,6 +79,88 @@ namespace ChiquitoMarmoraria.Resources
 
             lblBemvindo.Text = "Bem-vindo(a), " + nome + "!";
 
+			MySqlConnection conn = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+
+			try
+			{
+				if (conn.State == ConnectionState.Closed)
+				{
+					conn.Open();
+					Console.WriteLine("Conectado com sucesso2!");
+
+					MySqlCommand cmd = new MySqlCommand("select id, needNotifyClient from agendamento where id_usuario = @id_usuario AND needNotifyClient = 1", conn);
+					cmd.Parameters.AddWithValue("@id_usuario", id);
+
+					Console.WriteLine("Passou comando2!");
+
+					using (MySqlDataReader reader = cmd.ExecuteReader())
+					{
+						Console.WriteLine("OH GOSH BUGOU!");
+
+						while (reader.Read())
+						{
+							//   materiaisDisplay.Add(reader["nome"].ToString());
+							// Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
+
+
+							Console.WriteLine("Passou execute reader2!");
+							//int id2 = reader.GetOrdinal("id");
+							//int idservico = reader.GetOrdinal("id_servico");
+							//int idusuario = reader.GetOrdinal("id_usuario");
+							//int conf = reader.GetOrdinal("confirmado");
+							//String conf = reader.GetString("confirmado");
+							int needNot = reader.GetOrdinal("needNotifyClient");
+							int idAg = reader.GetOrdinal("id");
+							Console.WriteLine(needNot);
+
+							if (needNot == 1)
+							{
+								Intent intent = new Intent(this, typeof(MeusAgendamentos));
+								intent.PutExtra("id", id);
+
+								const int pendingIntentId = 0;
+								PendingIntent pendingIntent =
+									PendingIntent.GetActivity(this, pendingIntentId, intent, PendingIntentFlags.OneShot);
+
+								Notification.Builder builder = new Notification.Builder(this)
+									.SetContentIntent(pendingIntent)
+									.SetAutoCancel(true)
+									.SetContentTitle("Resposta de Agendamento")
+									.SetContentText("Seu agendamento recebeu uma resposta")
+									.SetSmallIcon(Resource.Drawable.Icon);
+
+								Notification not = builder.Build();
+
+								NotificationManager notManager = GetSystemService(Context.NotificationService) as NotificationManager;
+
+								const int notid = 0;
+
+								notManager.Notify(notid, not);
+
+								Console.WriteLine("id mudado ==" + idAg);
+							}
+
+
+						}
+
+					}
+
+					MySqlCommand query = new MySqlCommand("UPDATE agendamento SET needNotifyClient=0 WHERE id_usuario = @idUs AND needNotifyClient=1", conn);
+					Console.WriteLine("USER = " + id + " - NEEDNOT = ");
+					query.Parameters.AddWithValue("@idUs", id);
+					query.ExecuteNonQuery();
+
+				}
+			}
+			catch (MySqlException ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+			finally
+			{
+				conn.Close();
+			}
+
             btnOrcamento.Click += (object sender, EventArgs e) =>
             {
                 var intent = new Intent(this, typeof(MeuOrcamento));

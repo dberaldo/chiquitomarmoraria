@@ -82,9 +82,11 @@ namespace ChiquitoMarmoraria.Resources
 					{
 						con.Open();
 						Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
-						MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=1 WHERE id=@id", con);
+						MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=1, needNotifyClient=1 WHERE id=@id", con);
 						cmd.Parameters.AddWithValue("@id", a.Id);
 						cmd.ExecuteNonQuery();
+
+
 						//quando o usuario envia o agendamento a coluna confirmado deve ter valor false
 						//somente terá valor true quando o adm confirmar a solicitacao de agendamento
 
@@ -123,9 +125,10 @@ namespace ChiquitoMarmoraria.Resources
 							{
 								con.Open();
 								Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
-								MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0 WHERE id=@id", con);
+								MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0, needNotifyClient=1 WHERE id=@id", con);
 								cmd.Parameters.AddWithValue("@id", a.Id);
 								cmd.ExecuteNonQuery();
+
 								//quando o usuario envia o agendamento a coluna confirmado deve ter valor false
 								//somente terá valor true quando o adm confirmar a solicitacao de agendamento
 
