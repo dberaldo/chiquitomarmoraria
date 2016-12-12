@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">ChiquitoMarmoraria</string>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="ApplicationName">ChiquitoMarmoraria</string>
+  <string name="facebook_app_id">383371458662674</string>
+  <string name="fb_login_protocol_scheme">fb383371458662674</string>
 	<string name="Materiais">Materiais</string>
 	<string name="Cadastrar">Cadastrar</string>
 	<string name="Adicionar">Adicionar</string>

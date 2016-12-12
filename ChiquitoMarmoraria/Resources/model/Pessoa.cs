@@ -26,5 +26,6 @@ namespace ChiquitoMarmoraria.Resources.model
         public string Complemento { get; set; }
         public string Telefone { get; set; }
         public string Bairro { get; set; }
+        public string Facebook { get; set; }
     }
 }

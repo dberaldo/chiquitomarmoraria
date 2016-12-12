@@ -51,6 +51,13 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:onClick="entrar" />
+    <Button
+        android:text="Entrar com Facebook"
+        android:layout_width="220.5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_facebook"
+        android:layout_gravity="center"
+        android:layout_marginTop="0.0dp" />
     <TextView
         android:text="Esqueci minha senha"
         android:textAppearance="?android:attr/textAppearanceMedium"

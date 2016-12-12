@@ -44,6 +44,10 @@ namespace ChiquitoMarmoraria
             
 			SetContentView(Resource.Layout.CadastroLogin);
 
+            string facebookEmail = Intent.GetStringExtra("facebookEmail") ?? "";
+            string facebookName = Intent.GetStringExtra("facebookName") ?? "";
+            string facebookID = Intent.GetStringExtra("facebookID") ?? "";
+
             p = new ChiquitoMarmoraria.Resources.model.Pessoa();
 
             llBasico = FindViewById<LinearLayout>(Resource.Id.ll_infoBasic);
@@ -66,6 +70,10 @@ namespace ChiquitoMarmoraria
             txtTelefone = FindViewById<EditText>(Resource.Id.txt_telefone);
 			btnConfirmar = FindViewById<Button>(Resource.Id.btn_confirmar);
             btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
+
+            p.Facebook = facebookID;
+            txtNome.Text = facebookName;
+            txtEmail.Text = facebookEmail;
 
             btnProximo.Click += (object sender, EventArgs e) =>
             {
@@ -125,7 +133,7 @@ namespace ChiquitoMarmoraria
                 {
                     con.Open();
                     Console.WriteLine("Conectado com sucesso!");
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO pessoa (nome, email, senha, cep, estado, cidade, endereco, numero, complemento, telefone, bairro) VALUES (@nome, @email, @senha, @cep, @estado, @cidade, @endereco, @numero, @complemento, @telefone, @bairro)", con);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO pessoa (nome, email, senha, cep, estado, cidade, endereco, numero, complemento, telefone, bairro, facebook) VALUES (@nome, @email, @senha, @cep, @estado, @cidade, @endereco, @numero, @complemento, @telefone, @bairro, @facebook)", con);
                     cmd.Parameters.AddWithValue("@nome", txtNome.Text);
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
@@ -137,6 +145,7 @@ namespace ChiquitoMarmoraria
                     cmd.Parameters.AddWithValue("@complemento", p.Complemento);
                     cmd.Parameters.AddWithValue("@telefone", p.Telefone);
                     cmd.Parameters.AddWithValue("@bairro", p.Bairro);
+                    cmd.Parameters.AddWithValue("@facebook", p.Facebook);
                     cmd.ExecuteNonQuery();
                     Toast.MakeText(this, "Cadastrado realizado com sucesso.", ToastLength.Short).Show();
                     //Redireciona para a página de Login
