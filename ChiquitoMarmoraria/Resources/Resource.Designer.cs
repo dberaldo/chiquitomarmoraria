@@ -142,6 +142,9 @@ namespace ChiquitoMarmoraria
 			// aapt resource value: 0x7f020005
 			public const int refresh = 2130837509;
 			
+			// aapt resource value: 0x7f020006
+			public const int sem_foto = 2130837510;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
