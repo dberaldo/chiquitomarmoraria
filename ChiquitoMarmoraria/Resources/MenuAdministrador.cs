@@ -18,8 +18,9 @@ namespace ChiquitoMarmoraria
 		Button btnCadastroMaterial;
 		Button btnSolicitacoes;
 		Button btnAgendamentos;
+        Button btnEstatisticas;
 
-		protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.MenuAdministrador);
@@ -123,6 +124,14 @@ namespace ChiquitoMarmoraria
 				var intent = new Intent(this, typeof(Solicitacoes));
 				StartActivity(intent);
 			};
-		}
+
+            btnEstatisticas = FindViewById<Button>(Resource.Id.btnEstatísticas);
+
+            btnEstatisticas.Click += (sender, e) =>
+            {
+                var intent = new Intent(this, typeof(SubMenuEstatisticas));
+                StartActivity(intent);
+            };
+        }
 	}
 }

@@ -173,6 +173,8 @@
     <AndroidResource Include="Resources\layout\EstatisticasUsuarios.axml" />
     <AndroidResource Include="Resources\layout\ListItemEstatisticas.axml" />
     <AndroidResource Include="Resources\layout\MateriaisUsuario.axml" />
+    <AndroidResource Include="Resources\layout\subLayoutView.axml" />
+    <AndroidResource Include="Resources\layout\SubMenuEstatisticas.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

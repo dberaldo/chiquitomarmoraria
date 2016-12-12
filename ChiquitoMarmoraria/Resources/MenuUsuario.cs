@@ -23,6 +23,7 @@ namespace ChiquitoMarmoraria.Resources
         Button btnOrcamento;
         Button btnAgendamento;
         Button btnMeusAgedamentos;
+        Button btnMateriais;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,6 +37,7 @@ namespace ChiquitoMarmoraria.Resources
             btnOrcamento = FindViewById<Button>(Resource.Id.btn_orcamento);
             btnAgendamento = FindViewById<Button>(Resource.Id.btn_agendamento);
             btnMeusAgedamentos = FindViewById<Button>(Resource.Id.btn_meusagendamentos);
+            btnMateriais = FindViewById<Button>(Resource.Id.btnMateriaisDisponiveis);
 
 
             MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
@@ -182,6 +184,12 @@ namespace ChiquitoMarmoraria.Resources
                 var intent = new Intent(this, typeof(MeusAgendamentos));
                 intent.PutExtra("id", id);
                 Console.WriteLine("MenuUduario ID = "+ id);
+                StartActivity(intent);
+            };
+
+            btnMateriais.Click += (object sender, EventArgs e) =>
+            {
+                var intent = new Intent(this, typeof(GridViewMateriais));
                 StartActivity(intent);
             };
 
