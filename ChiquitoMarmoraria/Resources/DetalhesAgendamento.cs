@@ -46,10 +46,11 @@ namespace ChiquitoMarmoraria.Resources
             int mes = Intent.GetIntExtra("month", 0);
             int ano = Intent.GetIntExtra("year", 0);
 
-            //string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
+            string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
+			int idInt = Convert.ToInt32(idString);
             // Console.WriteLine("PROBLEM: " + idString);
-            int idInt = Intent.GetIntExtra("idusuario", 0); //Int32.Parse(idString);
-            string idString = idInt.ToString();
+            //int idInt = Intent.GetIntExtra("idusuario", 0); //Int32.Parse(idString);
+            //string idString = idInt.ToString();
             
             a = new Agendamento();
             a.Id = Intent.GetIntExtra("id", 0);
@@ -78,10 +79,12 @@ namespace ChiquitoMarmoraria.Resources
             btnVoltar.Click += (sender, e) =>
             {
                 var intent = new Intent(this, typeof(MeusAgendamentos));
-                intent.PutExtra("id", idString);
+				intent.PutExtra("id", idString);
 
                 DateTime data = new DateTime(ano, mes, dia);
                 Console.WriteLine("DATA "+data.ToString());
+				Console.WriteLine("ID USER = " + idInt);
+				Console.WriteLine("VOLTAR!!!");
 
                 intent.PutExtra("data", data.ToString());
 

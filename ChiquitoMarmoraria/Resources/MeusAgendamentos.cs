@@ -35,6 +35,7 @@ namespace ChiquitoMarmoraria.Resources
             string id = Intent.GetStringExtra("id") ?? "Data not available";
             string dateString = Intent.GetStringExtra("data");
             Console.WriteLine("dateString: \"" + dateString + "\"");
+			Console.WriteLine("Id USER = " + id);
             DateTime data;
             bool filtrarPorData = DateTime.TryParse(dateString, out data);
                 // DateTime data = DateTime.Parse(Intent.GetStringExtra("data"));
