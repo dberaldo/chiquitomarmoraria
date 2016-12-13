@@ -113,7 +113,7 @@ namespace ChiquitoMarmoraria
 
 			btnAgendamentos.Click += (sender, e) =>
 			{
-				var intent = new Intent(this, typeof(AgendamentoAdministrador));
+				var intent = new Intent(this, typeof(AgendamentoAdministradorCalendario));
 				StartActivity(intent);
 			};
 

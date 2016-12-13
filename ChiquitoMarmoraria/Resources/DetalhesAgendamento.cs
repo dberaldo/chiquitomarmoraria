@@ -45,8 +45,10 @@ namespace ChiquitoMarmoraria.Resources
             int mes = Intent.GetIntExtra("month", 0);
             int ano = Intent.GetIntExtra("year", 0);
 
-            string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
-            int idInt = Int32.Parse(idString);
+            //string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
+            // Console.WriteLine("PROBLEM: " + idString);
+            int idInt = Intent.GetIntExtra("idusuario", 0); //Int32.Parse(idString);
+            string idString = "" + idInt;
 
             a = new Agendamento();
             a.Id = Intent.GetIntExtra("id", 0);

@@ -29,10 +29,11 @@ namespace ChiquitoMarmoraria
 		{
 			base.OnCreate(savedInstanceState);
 
-
 			SetContentView(Resource.Layout.AgendamentoAdministrador);
 
-			resultAgenda = FindViewById<ListView>(Resource.Id.resultAgenda);
+            DateTime data = DateTime.Parse(Intent.GetStringExtra("data"));
+
+            resultAgenda = FindViewById<ListView>(Resource.Id.resultAgenda);
 			adapter = new AgendamentoAdapter(this, agendamentos);
 
 			DateTime today = DateTime.Now.Date;
@@ -45,22 +46,14 @@ namespace ChiquitoMarmoraria
 				{
 					con.Open();
 					Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
-					MySqlCommand cmd = new MySqlCommand("select id, data, id_servico, id_usuario, confirmado from agendamento WHERE data >= @dataIni AND data <= @dataFim AND confirmado=1", con);
+					MySqlCommand cmd = new MySqlCommand("select id, data, id_servico, id_usuario, confirmado from agendamento WHERE data = @data AND confirmado=1", con);
 
-					cmd.Parameters.AddWithValue("@dataIni", today);
-
-					DateTime dataFim = today.AddDays(7);
-					cmd.Parameters.AddWithValue("@dataFim", dataFim);
+					cmd.Parameters.AddWithValue("@data", data);
 
 					using (MySqlDataReader reader = cmd.ExecuteReader())
 					{
-
 						while (reader.Read())
 						{
-							//   materiaisDisplay.Add(reader["nome"].ToString());
-							// Console.WriteLine("Adicionando. MateriaisDisplay: " + materiaisDisplay);
-
-
 							Console.WriteLine("ta no reader");
 							int id = reader.GetOrdinal("id");
 
@@ -99,8 +92,6 @@ namespace ChiquitoMarmoraria
 					{
 						resultAgenda.Adapter = adapter;
 					}
-
-
 				}
 			}
 			catch (MySqlException ex)
@@ -116,6 +107,9 @@ namespace ChiquitoMarmoraria
 
 			resultAgenda.ItemClick += (sender, e) =>
 			{
+                Console.WriteLine("Position: " + e.Position);
+                Console.WriteLine("idusuario: " + agendamentos[e.Position].IdUsuario);
+
 				var intent = new Intent(this, typeof(DetalhesAgendamento));
 				intent.PutExtra("id", agendamentos[e.Position].Id);
 				intent.PutExtra("idservico", agendamentos[e.Position].IdServico);

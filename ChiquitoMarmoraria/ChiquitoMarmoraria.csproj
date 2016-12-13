@@ -62,6 +62,10 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Square.AndroidTimesSquare, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Square.AndroidTimesSquare.1.6.5.0\lib\MonoAndroid\Square.AndroidTimesSquare.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -81,6 +85,7 @@
     <Compile Include="CadastroLogin.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\AgendamentoAdapter.cs" />
+    <Compile Include="Resources\AgendamentoAdministradorCalendario.cs" />
     <Compile Include="Resources\AgendamentoUsuario.cs" />
     <Compile Include="Resources\DatePickerFragment.cs" />
     <Compile Include="Resources\DetalhesAgendamento.cs" />
@@ -94,6 +99,7 @@
     <Compile Include="Resources\MenuAdministrador.cs" />
     <Compile Include="Resources\MenuUsuario.cs" />
     <Compile Include="Resources\MeuOrcamento.cs" />
+    <Compile Include="Resources\MeusAgendamentosCalendario.cs" />
     <Compile Include="Resources\MeusAgendamentos.cs" />
     <Compile Include="Resources\Model\Agendamento.cs" />
     <Compile Include="Resources\Model\MySpinnerAdapter.cs" />
@@ -175,6 +181,9 @@
     <AndroidResource Include="Resources\layout\MateriaisUsuario.axml" />
     <AndroidResource Include="Resources\layout\subLayoutView.axml" />
     <AndroidResource Include="Resources\layout\SubMenuEstatisticas.axml" />
+    <AndroidResource Include="Resources\layout\MeusAgendamentosCalendario.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -206,6 +215,10 @@
       <Visible>False</Visible>
       <Version>1.0</Version>
     </XamarinComponentReference>
+    <XamarinComponentReference Include="square.androidtimessquare">
+      <Visible>False</Visible>
+      <Version>1.6.5.0</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="xamarin.auth">
       <Visible>False</Visible>
       <Version>1.2.3.1</Version>
@@ -225,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\sem_foto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AgendamentoAdministradorCalendario.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -181,7 +181,7 @@ namespace ChiquitoMarmoraria.Resources
 
             btnMeusAgedamentos.Click += (object sender, EventArgs e) =>
             {
-                var intent = new Intent(this, typeof(MeusAgendamentos));
+                var intent = new Intent(this, typeof(MeusAgendamentosCalendario));
                 intent.PutExtra("id", id);
                 Console.WriteLine("MenuUduario ID = "+ id);
                 StartActivity(intent);

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView1" />
     <TextView
-        android:text="Angendamentos"
+        android:text="Meus Angendamentos"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,20 +21,17 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
-    <ListView
+    <com.squareup.timessquare.CalendarPickerView
         android:minWidth="25px"
-        android:minHeight="25px"
+        android:minHeight="75px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/resultAgenda" />
-    <!-- <Button
-        android:text="Agendar Serviço"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_agendar" />
+        android:layout_height="0dp"
+        android:id="@+id/calendarPickerView1"
+        android:layout_weight="1" />
     <Button
-        android:text="Cancelar"
+        android:text="Voltar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_cancelar" /> -->
+        android:paddingTop="15dp"
+        android:id="@+id/btn_voltar" />
 </LinearLayout>

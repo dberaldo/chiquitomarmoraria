@@ -33,6 +33,11 @@ namespace ChiquitoMarmoraria.Resources
             SetContentView(Resource.Layout.MeusAgendamentos);
 
             string id = Intent.GetStringExtra("id") ?? "Data not available";
+            string dateString = Intent.GetStringExtra("data");
+            Console.WriteLine("dateString: \"" + dateString + "\"");
+            DateTime data;
+            bool filtrarPorData = DateTime.TryParse(dateString, out data);
+                // DateTime data = DateTime.Parse(Intent.GetStringExtra("data"));
             
             Console.WriteLine("IDDDD = " + id);
 
@@ -40,7 +45,7 @@ namespace ChiquitoMarmoraria.Resources
             listaAgendamentos = FindViewById<ListView>(Resource.Id.listaAgendamentos);
             //adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, agendamentosDisplay);
             adapter = new AgendamentoAdapter(this, agendamentos);
-            retrieve(id);
+            retrieve(id, data, filtrarPorData);
 
 
             btnVoltar.Click += (sender, e) =>
@@ -66,7 +71,7 @@ namespace ChiquitoMarmoraria.Resources
         }
 
 
-        public void retrieve(string id)
+        public void retrieve(string id, DateTime data, bool filtrarPorData)
         {
 
             MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
@@ -78,8 +83,9 @@ namespace ChiquitoMarmoraria.Resources
                     con.Open();
                     Console.WriteLine("Conectado com sucesso2!");
 
-                    MySqlCommand cmd = new MySqlCommand("select id, data, id_servico, id_usuario, confirmado from agendamento where id_usuario = @id_usuario", con);
+                    MySqlCommand cmd = new MySqlCommand("select id, data, id_servico, id_usuario, confirmado from agendamento where id_usuario = @id_usuario" + (filtrarPorData ? " and data = @data" : ""), con);
                     cmd.Parameters.AddWithValue("@id_usuario", id);
+                    cmd.Parameters.AddWithValue("@data", data);
 
                     Console.WriteLine("Passou comando2!");
                     
