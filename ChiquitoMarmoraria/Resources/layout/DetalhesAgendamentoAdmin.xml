@@ -11,6 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView1" />
+  <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_nome"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
     <TextView
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -23,7 +33,7 @@
         android:paddingTop="10dp" />
     <TextView
         android:text="Data:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
@@ -31,7 +41,7 @@
         android:gravity="center"
         android:paddingTop="10dp" />
     <TextView
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_data"
@@ -39,7 +49,7 @@
         android:gravity="center" />
     <TextView
         android:text="Status:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
@@ -47,12 +57,60 @@
         android:gravity="center"
         android:paddingTop="10dp" />
     <TextView
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_status"
         android:textColor="#3F433E"
         android:gravity="center" />
+  <TextView
+        android:text="Endereço:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_end"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
+  <TextView
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txt_endereco"
+      android:textColor="#3F433E"
+      android:gravity="center" />
+  <TextView
+        android:text="Cidade:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_cid"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="10dp" />
+  <TextView
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txt_cidade"
+      android:textColor="#3F433E"
+      android:gravity="center" />
+  <TextView
+     android:text="Telefone:"
+     android:textAppearance="?android:attr/textAppearanceMedium"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:id="@+id/text_tel"
+     android:textColor="@android:color/black"
+     android:gravity="center"
+     android:paddingTop="10dp" />
+  <TextView
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/txt_telefone"
+      android:textColor="#3F433E"
+      android:gravity="center" />
     <Button
         android:text="Aceitar"
         android:layout_width="match_parent"

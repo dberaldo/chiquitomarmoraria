@@ -110,7 +110,7 @@ namespace ChiquitoMarmoraria
                 Console.WriteLine("Position: " + e.Position);
                 Console.WriteLine("idusuario: " + agendamentos[e.Position].IdUsuario);
 
-				var intent = new Intent(this, typeof(DetalhesAgendamento));
+				var intent = new Intent(this, typeof(Activity1));
 				intent.PutExtra("id", agendamentos[e.Position].Id);
 				intent.PutExtra("idservico", agendamentos[e.Position].IdServico);
 				intent.PutExtra("idusuario", agendamentos[e.Position].IdUsuario);

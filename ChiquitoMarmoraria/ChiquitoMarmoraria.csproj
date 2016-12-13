@@ -84,6 +84,7 @@
     <Compile Include="EsqueciSenha.cs" />
     <Compile Include="CadastroLogin.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Activity1.cs" />
     <Compile Include="Resources\AgendamentoAdapter.cs" />
     <Compile Include="Resources\AgendamentoAdministradorCalendario.cs" />
     <Compile Include="Resources\AgendamentoUsuario.cs" />
@@ -182,6 +183,9 @@
     <AndroidResource Include="Resources\layout\subLayoutView.axml" />
     <AndroidResource Include="Resources\layout\SubMenuEstatisticas.axml" />
     <AndroidResource Include="Resources\layout\MeusAgendamentosCalendario.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Activity1.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

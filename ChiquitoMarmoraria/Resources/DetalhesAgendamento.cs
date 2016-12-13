@@ -22,6 +22,7 @@ namespace ChiquitoMarmoraria.Resources
         TextView lblTipo;
         TextView lblData;
         TextView lblStatus;
+
         Agendamento a;
         Button btnVoltar;
         Button btnAlterar;
@@ -50,13 +51,19 @@ namespace ChiquitoMarmoraria.Resources
             int idInt = Intent.GetIntExtra("idusuario", 0); //Int32.Parse(idString);
             string idString = "" + idInt;
 
+
+            
+
             a = new Agendamento();
             a.Id = Intent.GetIntExtra("id", 0);
             a.IdServico = Intent.GetIntExtra("idservico", 0);
             a.IdUsuario = idInt;
             a.Confirmado = Intent.GetIntExtra("status", 0);
+            
 
             Console.WriteLine("DetalhesAgendamento ID = "+a.IdUsuario);
+
+            
 
             if (a.IdServico == 1)
                 lblTipo.Text = "Medicao";
@@ -107,15 +114,15 @@ namespace ChiquitoMarmoraria.Resources
                     //Chamar função de deletar agendamento
                     //delete from agendamento where id=@id
 
-                    MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+                    MySqlConnection con2 = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 
                         try
                         {
-                            if (con.State == ConnectionState.Closed)
+                            if (con2.State == ConnectionState.Closed)
                             {
-                                con.Open();
+                                con2.Open();
                                 Console.WriteLine("Conectado com sucesso CANCELAMENTO Agendamento Usuario!");
-                                MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0, needNotifyAdmin=1 WHERE id=@id", con);
+                                MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0, needNotifyAdmin=1 WHERE id=@id", con2);
                                 cmd.Parameters.AddWithValue("@id", a.Id);
                                 cmd.ExecuteNonQuery();
 
@@ -135,7 +142,7 @@ namespace ChiquitoMarmoraria.Resources
                         }
                         finally
                         {
-                            con.Close();
+                            con2.Close();
                         }
 
                     })

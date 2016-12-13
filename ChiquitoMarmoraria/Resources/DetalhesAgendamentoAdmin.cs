@@ -22,6 +22,11 @@ namespace ChiquitoMarmoraria.Resources
 		TextView txtTipo;
 		TextView txtData;
 		TextView txtStatus;
+        TextView txtNome;
+        TextView txtEndereco;
+        TextView txtCidade;
+        TextView txtNumero;
+        TextView txtTelefone;
 		Agendamento a;
 		Button btnVoltar;
 
@@ -38,6 +43,11 @@ namespace ChiquitoMarmoraria.Resources
 			txtTipo = FindViewById<TextView>(Resource.Id.txt_tipo);
 			txtStatus = FindViewById<TextView>(Resource.Id.txt_status);
 			txtData = FindViewById<TextView>(Resource.Id.txt_data);
+            txtNome = FindViewById<TextView>(Resource.Id.txt_nome);
+            txtEndereco = FindViewById<TextView>(Resource.Id.txt_endereco);
+            txtCidade = FindViewById<TextView>(Resource.Id.txt_cidade);
+            txtNumero = FindViewById<TextView>(Resource.Id.txt_numero);
+            txtTelefone = FindViewById<TextView>(Resource.Id.txt_telefone);
 			btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
 			btnAceitar = FindViewById<Button>(Resource.Id.btnAceitar);
 			btnCancelar = FindViewById<Button>(Resource.Id.btnCancelar);
@@ -53,7 +63,60 @@ namespace ChiquitoMarmoraria.Resources
 			a.IdUsuario = Intent.GetIntExtra("idusuario", 0);
 			a.Confirmado = Intent.GetIntExtra("status", 0);
 
-			if (a.IdServico == 1)
+
+
+            MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+
+            string endereco = "";
+            string nome = "";
+            int numero=0;
+            string cidade = "";
+            string complemento = "";
+            string telefone = "";
+
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    Console.WriteLine("Conectado com sucesso!");
+
+                }
+
+                MySqlCommand cmd = new MySqlCommand("Select nome, endereco, numero, cidade, telefone, complemento from pessoa where id=@id;", con);
+                cmd.Parameters.AddWithValue("@id", a.IdUsuario.ToString());
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("Passou execute reader!");
+                    if (reader.Read())
+                    {
+
+                        numero = reader.GetOrdinal("numero");
+                        nome = reader["nome"].ToString();
+                        endereco = reader["endereco"].ToString();
+                        cidade = reader["cidade"].ToString();
+                        complemento = reader["complemento"].ToString();
+                        telefone = reader["telefone"].ToString();
+                        Console.WriteLine("Passou REad reader!");
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+            
+            txtNome.Text = nome;
+            txtEndereco.Text = endereco + ", "+ numero.ToString();
+            txtCidade.Text = cidade;
+            txtTelefone.Text = telefone;
+            
+            if (a.IdServico == 1)
 				txtTipo.Text = "Medicao";
 			else if (a.IdServico == 2)
 				txtTipo.Text = "Entrega";
@@ -75,14 +138,14 @@ namespace ChiquitoMarmoraria.Resources
 			};
 
 			btnAceitar.Click += (sender, e) => { 
-				MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+				MySqlConnection con2 = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 				try
 				{
-					if (con.State == ConnectionState.Closed)
+					if (con2.State == ConnectionState.Closed)
 					{
-						con.Open();
+						con2.Open();
 						Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
-						MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=1, needNotifyClient=1 WHERE id=@id", con);
+						MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=1, needNotifyClient=1 WHERE id=@id", con2);
 						cmd.Parameters.AddWithValue("@id", a.Id);
 						cmd.ExecuteNonQuery();
 
@@ -103,7 +166,7 @@ namespace ChiquitoMarmoraria.Resources
 				}
 				finally
 				{
-					con.Close();
+					con2.Close();
 				}
 
 				//apos exibir mensagem chamar de solicitações
@@ -118,14 +181,14 @@ namespace ChiquitoMarmoraria.Resources
 				new AlertDialog.Builder(this)
 					.SetPositiveButton("Sim", (sender2, args) =>
 					{
-						MySqlConnection con = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
+						MySqlConnection con3 = new MySqlConnection("Server=mysql873.umbler.com;Port=41890;database=ufscarpds;User Id=ufscarpds;Password=ufscar1993;charset=utf8");
 						try
 						{
-							if (con.State == ConnectionState.Closed)
+							if (con3.State == ConnectionState.Closed)
 							{
-								con.Open();
+								con3.Open();
 								Console.WriteLine("Conectado com sucesso Agendamento Usuario!");
-								MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0, needNotifyClient=1 WHERE id=@id", con);
+								MySqlCommand cmd = new MySqlCommand("UPDATE agendamento SET confirmado=0, needNotifyClient=1 WHERE id=@id", con3);
 								cmd.Parameters.AddWithValue("@id", a.Id);
 								cmd.ExecuteNonQuery();
 
@@ -145,7 +208,7 @@ namespace ChiquitoMarmoraria.Resources
 						}
 						finally
 						{
-							con.Close();
+							con3.Close();
 						}
 
 						//apos exibir mensagem chamar de solicitações

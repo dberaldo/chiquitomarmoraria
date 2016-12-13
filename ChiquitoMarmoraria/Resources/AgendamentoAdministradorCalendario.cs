@@ -22,6 +22,7 @@ namespace ChiquitoMarmoraria
     public class AgendamentoAdministradorCalendario : Activity
     {
         CalendarPickerView calendarPickerView1;
+        Button btnVoltar;
         // ListView resultAgenda;
         // AgendamentoAdapter adapter;
         // List<Agendamento> agendamentos = new List<Agendamento>();
@@ -36,6 +37,13 @@ namespace ChiquitoMarmoraria
             calendarPickerView1 = FindViewById<CalendarPickerView>(Resource.Id.calendarPickerView1);
             // resultAgenda = FindViewById<ListView>(Resource.Id.resultAgenda);
             // adapter = new AgendamentoAdapter(this, agendamentos);
+            btnVoltar = FindViewById<Button>(Resource.Id.btn_voltar);
+
+
+            btnVoltar.Click += (sender, e) =>
+            {
+                Finish();
+            };
 
             var nextYear = DateTime.Now.AddYears(1);
 
