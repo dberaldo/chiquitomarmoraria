@@ -152,6 +152,7 @@ namespace ChiquitoMarmoraria.Resources
                     //apos exibir mensagem chamar tela meus agendamentos
                     var intent = new Intent(this, typeof(MeusAgendamentos));
                     intent.PutExtra("id", id);
+
                     StartActivity(intent);
                     Finish();
 

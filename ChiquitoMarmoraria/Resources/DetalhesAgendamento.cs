@@ -49,22 +49,16 @@ namespace ChiquitoMarmoraria.Resources
             //string idString = Intent.GetStringExtra("idusuario") ?? "Data not available";
             // Console.WriteLine("PROBLEM: " + idString);
             int idInt = Intent.GetIntExtra("idusuario", 0); //Int32.Parse(idString);
-            string idString = "" + idInt;
-
-
+            string idString = idInt.ToString();
             
-
             a = new Agendamento();
             a.Id = Intent.GetIntExtra("id", 0);
             a.IdServico = Intent.GetIntExtra("idservico", 0);
             a.IdUsuario = idInt;
             a.Confirmado = Intent.GetIntExtra("status", 0);
             
-
             Console.WriteLine("DetalhesAgendamento ID = "+a.IdUsuario);
-
             
-
             if (a.IdServico == 1)
                 lblTipo.Text = "Medicao";
             else if (a.IdServico == 2)
@@ -85,6 +79,11 @@ namespace ChiquitoMarmoraria.Resources
             {
                 var intent = new Intent(this, typeof(MeusAgendamentos));
                 intent.PutExtra("id", idString);
+
+                DateTime data = new DateTime(ano, mes, dia);
+                Console.WriteLine("DATA "+data.ToString());
+
+                intent.PutExtra("data", data.ToString());
 
                 StartActivity(intent);
                 Finish();
